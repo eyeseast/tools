@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interval Timer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background: white;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        max-width: 500px;
+        width: 100%;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 28px;
+      }
+
+      .timer-display {
+        text-align: center;
+        font-size: 64px;
+        font-weight: bold;
+        color: #667eea;
+        margin: 30px 0;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .interval-buttons {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      .interval-btn {
+        padding: 15px;
+        border: 2px solid #667eea;
+        background: white;
+        color: #667eea;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .interval-btn:hover {
+        background: #667eea;
+        color: white;
+      }
+
+      .interval-btn.active {
+        background: #667eea;
+        color: white;
+      }
+
+      .control-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .control-btn {
+        flex: 1;
+        padding: 18px;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .start-btn {
+        background: #10b981;
+        color: white;
+      }
+
+      .start-btn:hover {
+        background: #059669;
+      }
+
+      .stop-btn {
+        background: #ef4444;
+        color: white;
+      }
+
+      .stop-btn:hover {
+        background: #dc2626;
+      }
+
+      .reset-btn {
+        background: #6b7280;
+        color: white;
+      }
+
+      .reset-btn:hover {
+        background: #4b5563;
+      }
+
+      .status {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #6b7280;
+        min-height: 20px;
+      }
+
+      .status.active {
+        color: #10b981;
+        font-weight: 600;
+      }
+
+      .custom-interval {
+        margin: 20px 0;
+        padding: 20px;
+        background: #f9fafb;
+        border-radius: 10px;
+      }
+
+      .custom-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #374151;
+        margin-bottom: 10px;
+      }
+
+      .custom-inputs {
+        display: flex;
+        gap: 10px;
+        align-items: stretch;
+      }
+
+      .input-group {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .input-group input {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        transition: border-color 0.3s ease;
+        flex: 1;
+      }
+
+      .input-group input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .input-group label {
+        font-size: 12px;
+        color: #6b7280;
+        text-align: center;
+      }
+
+      .set-custom-btn {
+        flex: 1;
+        padding: 0 20px;
+        background: #667eea;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 22px;
+      }
+
+      .set-custom-btn:hover {
+        background: #5568d3;
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 30px 20px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        .timer-display {
+          font-size: 48px;
+        }
+
+        .interval-buttons {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .control-btn {
+          padding: 15px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>⏱️ Interval Timer</h1>
+
+      <div class="timer-display" id="timerDisplay">00:00</div>
+
+      <div class="interval-buttons">
+        <button class="interval-btn" data-seconds="10">10 sec</button>
+        <button class="interval-btn" data-seconds="30">30 sec</button>
+        <button class="interval-btn active" data-seconds="60">1 min</button>
+        <button class="interval-btn" data-seconds="120">2 min</button>
+        <button class="interval-btn" data-seconds="180">3 min</button>
+        <button class="interval-btn" data-seconds="300">5 min</button>
+      </div>
+
+      <div class="custom-interval">
+        <div class="custom-label">Custom Interval</div>
+        <div class="custom-inputs">
+          <div class="input-group">
+            <input
+              type="number"
+              id="customMinutes"
+              min="0"
+              max="99"
+              value="0"
+              placeholder="0"
+            />
+            <label>min</label>
+          </div>
+          <div class="input-group">
+            <input
+              type="number"
+              id="customSeconds"
+              min="0"
+              max="59"
+              value="0"
+              placeholder="0"
+            />
+            <label>sec</label>
+          </div>
+          <button class="set-custom-btn" id="setCustomBtn">Set</button>
+        </div>
+      </div>
+
+      <div class="custom-interval">
+        <div class="custom-label">Maximum Duration (optional)</div>
+        <div class="custom-inputs">
+          <div class="input-group">
+            <input
+              type="number"
+              id="maxMinutes"
+              min="0"
+              max="999"
+              value="0"
+              placeholder="0"
+            />
+            <label>min</label>
+          </div>
+          <div class="input-group">
+            <input
+              type="number"
+              id="maxSeconds"
+              min="0"
+              max="59"
+              value="0"
+              placeholder="0"
+            />
+            <label>sec</label>
+          </div>
+          <button class="set-custom-btn" id="setMaxBtn">Set</button>
+        </div>
+      </div>
+
+      <div class="control-buttons">
+        <button class="control-btn start-btn" id="startBtn">Start</button>
+        <button class="control-btn stop-btn" id="stopBtn" style="display: none">
+          Stop
+        </button>
+        <button class="control-btn reset-btn" id="resetBtn">Reset</button>
+      </div>
+
+      <div class="status" id="status">Select an interval and press Start</div>
+    </div>
+
+    <script>
+      let intervalSeconds = 60;
+      let elapsedSeconds = 0;
+      let maxDuration = 0;
+      let timerInterval = null;
+      let isRunning = false;
+
+      const timerDisplay = document.getElementById("timerDisplay");
+      const startBtn = document.getElementById("startBtn");
+      const stopBtn = document.getElementById("stopBtn");
+      const resetBtn = document.getElementById("resetBtn");
+      const status = document.getElementById("status");
+      const intervalButtons = document.querySelectorAll(".interval-btn");
+      const customMinutes = document.getElementById("customMinutes");
+      const customSeconds = document.getElementById("customSeconds");
+      const setCustomBtn = document.getElementById("setCustomBtn");
+      const maxMinutes = document.getElementById("maxMinutes");
+      const maxSeconds = document.getElementById("maxSeconds");
+      const setMaxBtn = document.getElementById("setMaxBtn");
+
+      // Create audio context for beep sound
+      const audioContext = new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+      function playBeep() {
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        oscillator.frequency.value = 800;
+        oscillator.type = "sine";
+
+        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(
+          0.01,
+          audioContext.currentTime + 0.5
+        );
+
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.5);
+      }
+
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        return `${mins.toString().padStart(2, "0")}:${secs
+          .toString()
+          .padStart(2, "0")}`;
+      }
+
+      function updateDisplay() {
+        timerDisplay.textContent = formatTime(elapsedSeconds);
+      }
+
+      function startTimer() {
+        if (isRunning) return;
+
+        isRunning = true;
+        startBtn.style.display = "none";
+        stopBtn.style.display = "block";
+        status.textContent = `Timer running - dings every ${
+          intervalSeconds >= 60
+            ? intervalSeconds / 60 + " min"
+            : intervalSeconds + " sec"
+        }`;
+        status.classList.add("active");
+
+        // Resume audio context if needed
+        if (audioContext.state === "suspended") {
+          audioContext.resume();
+        }
+
+        timerInterval = setInterval(() => {
+          elapsedSeconds++;
+          updateDisplay();
+
+          if (elapsedSeconds % intervalSeconds === 0) {
+            playBeep();
+          }
+
+          if (maxDuration > 0 && elapsedSeconds >= maxDuration) {
+            stopTimer();
+            status.textContent = "Maximum duration reached!";
+            status.classList.remove("active");
+          }
+        }, 1000);
+      }
+
+      function stopTimer() {
+        if (!isRunning) return;
+
+        isRunning = false;
+        clearInterval(timerInterval);
+        startBtn.style.display = "block";
+        stopBtn.style.display = "none";
+        status.textContent = "Timer paused";
+        status.classList.remove("active");
+      }
+
+      function resetTimer() {
+        stopTimer();
+        elapsedSeconds = 0;
+        updateDisplay();
+        status.textContent = "Timer reset";
+        status.classList.remove("active");
+      }
+
+      intervalButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (isRunning) {
+            stopTimer();
+          }
+
+          intervalButtons.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          intervalSeconds = parseInt(btn.dataset.seconds);
+
+          resetTimer();
+          status.textContent = `Interval set to ${
+            intervalSeconds >= 60
+              ? intervalSeconds / 60 + " min"
+              : intervalSeconds + " sec"
+          }`;
+        });
+      });
+
+      startBtn.addEventListener("click", startTimer);
+      stopBtn.addEventListener("click", stopTimer);
+      resetBtn.addEventListener("click", resetTimer);
+
+      setCustomBtn.addEventListener("click", () => {
+        const mins = parseInt(customMinutes.value) || 0;
+        const secs = parseInt(customSeconds.value) || 0;
+        const totalSeconds = mins * 60 + secs;
+
+        if (totalSeconds < 1) {
+          alert("Please enter a valid interval (at least 1 second)");
+          return;
+        }
+
+        if (isRunning) {
+          stopTimer();
+        }
+
+        intervalButtons.forEach((b) => b.classList.remove("active"));
+        intervalSeconds = totalSeconds;
+
+        resetTimer();
+
+        const timeStr =
+          mins > 0 && secs > 0
+            ? `${mins} min ${secs} sec`
+            : mins > 0
+            ? `${mins} min`
+            : `${secs} sec`;
+        status.textContent = `Custom interval set to ${timeStr}`;
+      });
+
+      setMaxBtn.addEventListener("click", () => {
+        const mins = parseInt(maxMinutes.value) || 0;
+        const secs = parseInt(maxSeconds.value) || 0;
+        const totalSeconds = mins * 60 + secs;
+
+        maxDuration = totalSeconds;
+
+        if (maxDuration === 0) {
+          status.textContent =
+            "Maximum duration cleared (timer runs indefinitely)";
+        } else {
+          const timeStr =
+            mins > 0 && secs > 0
+              ? `${mins} min ${secs} sec`
+              : mins > 0
+              ? `${mins} min`
+              : `${secs} sec`;
+          status.textContent = `Maximum duration set to ${timeStr}`;
+        }
+      });
+
+      updateDisplay();
+    </script>
+  </body>
+</html>
