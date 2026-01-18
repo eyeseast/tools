@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Ingredient Scaler</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+      }
+
+      .header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+
+      .header p {
+        opacity: 0.9;
+        font-size: 14px;
+      }
+
+      .content {
+        padding: 30px;
+      }
+
+      .input-section {
+        margin-bottom: 30px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 150px;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+        resize: vertical;
+        transition: border-color 0.3s;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .controls {
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+      }
+
+      .control-group {
+        flex: 1;
+        min-width: 150px;
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      input[type="number"]:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      .scale-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      button {
+        padding: 12px 24px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      .btn-secondary {
+        background: #6c757d;
+      }
+
+      .btn-secondary:hover {
+        box-shadow: 0 4px 12px rgba(108, 117, 125, 0.4);
+      }
+
+      .results {
+        margin-top: 30px;
+      }
+
+      .ingredient-list {
+        list-style: none;
+      }
+
+      .ingredient-item {
+        padding: 12px;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .ingredient-item:last-child {
+        border-bottom: none;
+      }
+
+      .ingredient-original {
+        color: #999;
+        font-size: 13px;
+      }
+
+      .ingredient-scaled {
+        font-weight: 600;
+        color: #667eea;
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 40px;
+        color: #999;
+      }
+
+      .scale-factor {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+        color: #667eea;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🍳 Recipe Ingredient Scaler</h1>
+        <p>Paste your ingredients and adjust serving sizes easily</p>
+      </div>
+
+      <div class="content">
+        <div class="input-section">
+          <label for="ingredients">Paste Your Ingredients:</label>
+          <textarea
+            id="ingredients"
+            placeholder="Example:&#10;2 cups flour&#10;1/2 teaspoon salt&#10;3 eggs&#10;1.5 cups milk&#10;250g butter"
+          ></textarea>
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <label for="originalServings">Original Servings:</label>
+            <input type="number" id="originalServings" value="4" min="1" />
+          </div>
+          <div class="control-group">
+            <label for="newServings">New Servings:</label>
+            <input type="number" id="newServings" value="4" min="1" />
+          </div>
+        </div>
+
+        <div class="scale-buttons">
+          <button onclick="scaleRecipe()">Scale Recipe</button>
+          <button class="btn-secondary" onclick="resetRecipe()">Reset</button>
+        </div>
+
+        <div class="results" id="results"></div>
+      </div>
+    </div>
+
+    <script>
+      let parsedIngredients = [];
+
+      function parseFraction(str) {
+        str = str.trim();
+
+        // Handle mixed numbers like "1 1/2"
+        const mixedMatch = str.match(/^(\d+)\s+(\d+)\/(\d+)$/);
+        if (mixedMatch) {
+          return (
+            parseInt(mixedMatch[1]) +
+            parseInt(mixedMatch[2]) / parseInt(mixedMatch[3])
+          );
+        }
+
+        // Handle fractions like "1/2"
+        const fractionMatch = str.match(/^(\d+)\/(\d+)$/);
+        if (fractionMatch) {
+          return parseInt(fractionMatch[1]) / parseInt(fractionMatch[2]);
+        }
+
+        // Handle decimals or whole numbers
+        const num = parseFloat(str);
+        return isNaN(num) ? null : num;
+      }
+
+      function toFraction(decimal) {
+        const tolerance = 1.0e-6;
+        let h1 = 1,
+          h2 = 0,
+          k1 = 0,
+          k2 = 1;
+        let b = decimal;
+
+        do {
+          let a = Math.floor(b);
+          let aux = h1;
+          h1 = a * h1 + h2;
+          h2 = aux;
+          aux = k1;
+          k1 = a * k1 + k2;
+          k2 = aux;
+          b = 1 / (b - a);
+        } while (Math.abs(decimal - h1 / k1) > decimal * tolerance);
+
+        return { numerator: h1, denominator: k1 };
+      }
+
+      function convertCupMeasurement(cups, originalUnit) {
+        // Only convert if the original unit was 'cup' or 'cups'
+        if (!originalUnit.toLowerCase().includes("cup")) {
+          return null;
+        }
+
+        // Less than 1/4 cup (0.25)
+        if (cups < 0.25) {
+          const tbsp = cups * 16; // 1 cup = 16 tablespoons
+
+          // If less than 1 tablespoon, convert to teaspoons
+          if (tbsp < 1) {
+            const tsp = cups * 48; // 1 cup = 48 teaspoons
+            return { value: tsp, unit: tsp === 1 ? "teaspoon" : "teaspoons" };
+          }
+
+          return {
+            value: tbsp,
+            unit: tbsp === 1 ? "tablespoon" : "tablespoons",
+          };
+        }
+
+        return null;
+      }
+
+      function formatNumber(num) {
+        const rounded = Math.round(num * 1000) / 1000;
+
+        // If it's close to a whole number, return that
+        if (Math.abs(rounded - Math.round(rounded)) < 0.01) {
+          return Math.round(rounded).toString();
+        }
+
+        // Check if it's close to a common fraction
+        const fraction = toFraction(rounded);
+        if (fraction.denominator <= 16) {
+          const whole = Math.floor(rounded);
+          const remainder = rounded - whole;
+
+          if (whole === 0) {
+            return `${fraction.numerator}/${fraction.denominator}`;
+          } else if (Math.abs(remainder) < 0.01) {
+            return whole.toString();
+          } else {
+            const fracPart = toFraction(remainder);
+            return `${whole} ${fracPart.numerator}/${fracPart.denominator}`;
+          }
+        }
+
+        // Otherwise return decimal
+        return rounded.toString();
+      }
+
+      function parseIngredient(line) {
+        line = line.trim();
+        if (!line) return null;
+
+        // Pattern to match quantities (including fractions, decimals, and mixed numbers)
+        const pattern = /^([\d\/\.\s]+)\s*([a-zA-Z]*)\s*(.+)$/;
+        const match = line.match(pattern);
+
+        if (match) {
+          const quantityStr = match[1].trim();
+          const unit = match[2].trim();
+          const ingredient = match[3].trim();
+
+          const quantity = parseFraction(quantityStr);
+
+          if (quantity !== null) {
+            return {
+              original: line,
+              quantity: quantity,
+              unit: unit,
+              ingredient: ingredient,
+            };
+          }
+        }
+
+        // If no quantity found, return as non-scalable
+        return {
+          original: line,
+          quantity: null,
+          unit: "",
+          ingredient: line,
+        };
+      }
+
+      function scaleRecipe() {
+        const ingredientsText = document.getElementById("ingredients").value;
+        const originalServings = parseFloat(
+          document.getElementById("originalServings").value,
+        );
+        const newServings = parseFloat(
+          document.getElementById("newServings").value,
+        );
+
+        if (!ingredientsText.trim()) {
+          document.getElementById("results").innerHTML =
+            '<div class="no-results">Please paste some ingredients first!</div>';
+          return;
+        }
+
+        const lines = ingredientsText.split("\n");
+        parsedIngredients = lines
+          .map(parseIngredient)
+          .filter((item) => item !== null);
+
+        const scaleFactor = newServings / originalServings;
+
+        let html = `<div class="scale-factor">Scale Factor: ${scaleFactor.toFixed(2)}x (${originalServings} → ${newServings} servings)</div>`;
+        html += '<ul class="ingredient-list">';
+
+        parsedIngredients.forEach((ing) => {
+          if (ing.quantity !== null) {
+            const scaledQuantity = ing.quantity * scaleFactor;
+
+            // Check if we should convert cup measurements
+            const converted = convertCupMeasurement(scaledQuantity, ing.unit);
+
+            let displayQuantity, displayUnit;
+            if (converted) {
+              displayQuantity = formatNumber(converted.value);
+              displayUnit = converted.unit;
+            } else {
+              displayQuantity = formatNumber(scaledQuantity);
+              displayUnit = ing.unit;
+            }
+
+            html += `
+                        <li class="ingredient-item">
+                            <div>
+                                <div class="ingredient-scaled">${displayQuantity} ${displayUnit} ${ing.ingredient}</div>
+                                <div class="ingredient-original">Original: ${ing.original}</div>
+                            </div>
+                        </li>
+                    `;
+          } else {
+            html += `
+                        <li class="ingredient-item">
+                            <div>
+                                <div class="ingredient-scaled">${ing.ingredient}</div>
+                                <div class="ingredient-original">No quantity to scale</div>
+                            </div>
+                        </li>
+                    `;
+          }
+        });
+
+        html += "</ul>";
+        document.getElementById("results").innerHTML = html;
+      }
+
+      function resetRecipe() {
+        document.getElementById("ingredients").value = "";
+        document.getElementById("originalServings").value = "4";
+        document.getElementById("newServings").value = "4";
+        document.getElementById("results").innerHTML = "";
+        parsedIngredients = [];
+      }
+
+      // Allow Enter key to scale
+      document
+        .getElementById("newServings")
+        .addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            scaleRecipe();
+          }
+        });
+    </script>
+  </body>
+</html>
