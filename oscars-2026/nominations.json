@@ -1,761 +1,761 @@
 {
-“ceremony”: {
-“year”: 2026,
-“edition”: “98th Academy Awards”,
-“date”: “Sunday, March 15, 2026”,
-“location”: “Dolby Theatre at Ovation Hollywood”,
-“honoring”: “Movies released in 2025”
-},
-“nominations”: [
-{
-“category”: “Actor in a Leading Role”,
-“nominee”: “Timothée Chalamet”,
-“film”: “Marty Supreme”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Leading Role”,
-“nominee”: “Leonardo DiCaprio”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Leading Role”,
-“nominee”: “Ethan Hawke”,
-“film”: “Blue Moon”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Leading Role”,
-“nominee”: “Michael B. Jordan”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Leading Role”,
-“nominee”: “Wagner Moura”,
-“film”: “The Secret Agent”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Supporting Role”,
-“nominee”: “Benicio Del Toro”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Supporting Role”,
-“nominee”: “Jacob Elordi”,
-“film”: “Frankenstein”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Supporting Role”,
-“nominee”: “Delroy Lindo”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Supporting Role”,
-“nominee”: “Sean Penn”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actor in a Supporting Role”,
-“nominee”: “Stellan Skarsgård”,
-“film”: “Sentimental Value”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Leading Role”,
-“nominee”: “Jessie Buckley”,
-“film”: “Hamnet”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Leading Role”,
-“nominee”: “Rose Byrne”,
-“film”: “If I Had Legs I’d Kick You”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Leading Role”,
-“nominee”: “Kate Hudson”,
-“film”: “Song Sung Blue”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Leading Role”,
-“nominee”: “Renate Reinsve”,
-“film”: “Sentimental Value”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Leading Role”,
-“nominee”: “Emma Stone”,
-“film”: “Bugonia”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Supporting Role”,
-“nominee”: “Elle Fanning”,
-“film”: “Sentimental Value”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Supporting Role”,
-“nominee”: “Inga Ibsdotter Lilleaas”,
-“film”: “Sentimental Value”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Supporting Role”,
-“nominee”: “Amy Madigan”,
-“film”: “Weapons”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Supporting Role”,
-“nominee”: “Wunmi Mosaku”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Actress in a Supporting Role”,
-“nominee”: “Teyana Taylor”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Animated Feature Film”,
-“nominee”: “Arco”,
-“film”: “”,
-“additionalCredits”: “Ugo Bienvenu, Félix de Givry, Sophie Mas and Natalie Portman”
-},
-{
-“category”: “Animated Feature Film”,
-“nominee”: “Elio”,
-“film”: “”,
-“additionalCredits”: “Madeline Sharafian, Domee Shi, Adrian Molina and Mary Alice Drumm”
-},
-{
-“category”: “Animated Feature Film”,
-“nominee”: “KPop Demon Hunters”,
-“film”: “”,
-“additionalCredits”: “Maggie Kang, Chris Appelhans and Michelle L.M. Wong”
-},
-{
-“category”: “Animated Feature Film”,
-“nominee”: “Little Amélie or the Character of Rain”,
-“film”: “”,
-“additionalCredits”: “Maïlys Vallade, Liane-Cho Han, Nidia Santiago and Henri Magalon”
-},
-{
-“category”: “Animated Feature Film”,
-“nominee”: “Zootopia 2”,
-“film”: “”,
-“additionalCredits”: “Jared Bush, Byron Howard and Yvett Merino”
-},
-{
-“category”: “Animated Short Film”,
-“nominee”: “Butterfly”,
-“film”: “”,
-“additionalCredits”: “Florence Miailhe and Ron Dyens”
-},
-{
-“category”: “Animated Short Film”,
-“nominee”: “Forevergreen”,
-“film”: “”,
-“additionalCredits”: “Nathan Engelhardt and Jeremy Spears”
-},
-{
-“category”: “Animated Short Film”,
-“nominee”: “The Girl Who Cried Pearls”,
-“film”: “”,
-“additionalCredits”: “Chris Lavis and Maciek Szczerbowski”
-},
-{
-“category”: “Animated Short Film”,
-“nominee”: “Retirement Plan”,
-“film”: “”,
-“additionalCredits”: “John Kelly and Andrew Freedman”
-},
-{
-“category”: “Animated Short Film”,
-“nominee”: “The Three Sisters”,
-“film”: “”,
-“additionalCredits”: “Konstantin Bronzit”
-},
-{
-“category”: “Casting”,
-“nominee”: “Nina Gold”,
-“film”: “Hamnet”,
-“additionalCredits”: “”
-},
-{
-“category”: “Casting”,
-“nominee”: “Jennifer Venditti”,
-“film”: “Marty Supreme”,
-“additionalCredits”: “”
-},
-{
-“category”: “Casting”,
-“nominee”: “Cassandra Kulukundis”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Casting”,
-“nominee”: “Gabriel Domingues”,
-“film”: “The Secret Agent”,
-“additionalCredits”: “”
-},
-{
-“category”: “Casting”,
-“nominee”: “Francine Maisler”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Cinematography”,
-“nominee”: “Dan Laustsen”,
-“film”: “Frankenstein”,
-“additionalCredits”: “”
-},
-{
-“category”: “Cinematography”,
-“nominee”: “Darius Khondji”,
-“film”: “Marty Supreme”,
-“additionalCredits”: “”
-},
-{
-“category”: “Cinematography”,
-“nominee”: “Michael Bauman”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Cinematography”,
-“nominee”: “Autumn Durald Arkapaw”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Cinematography”,
-“nominee”: “Adolpho Veloso”,
-“film”: “Train Dreams”,
-“additionalCredits”: “”
-},
-{
-“category”: “Costume Design”,
-“nominee”: “Deborah L. Scott”,
-“film”: “Avatar: Fire and Ash”,
-“additionalCredits”: “”
-},
-{
-“category”: “Costume Design”,
-“nominee”: “Kate Hawley”,
-“film”: “Frankenstein”,
-“additionalCredits”: “”
-},
-{
-“category”: “Costume Design”,
-“nominee”: “Malgosia Turzanska”,
-“film”: “Hamnet”,
-“additionalCredits”: “”
-},
-{
-“category”: “Costume Design”,
-“nominee”: “Miyako Bellizzi”,
-“film”: “Marty Supreme”,
-“additionalCredits”: “”
-},
-{
-“category”: “Costume Design”,
-“nominee”: “Ruth E. Carter”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Directing”,
-“nominee”: “Chloé Zhao”,
-“film”: “Hamnet”,
-“additionalCredits”: “”
-},
-{
-“category”: “Directing”,
-“nominee”: “Josh Safdie”,
-“film”: “Marty Supreme”,
-“additionalCredits”: “”
-},
-{
-“category”: “Directing”,
-“nominee”: “Paul Thomas Anderson”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Directing”,
-“nominee”: “Joachim Trier”,
-“film”: “Sentimental Value”,
-“additionalCredits”: “”
-},
-{
-“category”: “Directing”,
-“nominee”: “Ryan Coogler”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Documentary Feature Film”,
-“nominee”: “The Alabama Solution”,
-“film”: “”,
-“additionalCredits”: “Andrew Jarecki and Charlotte Kaufman”
-},
-{
-“category”: “Documentary Feature Film”,
-“nominee”: “Come See Me in the Good Light”,
-“film”: “”,
-“additionalCredits”: “Ryan White, Jessica Hargrave, Tig Notaro and Stef Willen”
-},
-{
-“category”: “Documentary Feature Film”,
-“nominee”: “Cutting through Rocks”,
-“film”: “”,
-“additionalCredits”: “Sara Khaki and Mohammadreza Eyni”
-},
-{
-“category”: “Documentary Feature Film”,
-“nominee”: “Mr. Nobody against Putin”,
-“film”: “”,
-“additionalCredits”: “Nominees to be determined”
-},
-{
-“category”: “Documentary Feature Film”,
-“nominee”: “The Perfect Neighbor”,
-“film”: “”,
-“additionalCredits”: “Geeta Gandbhir, Alisa Payne, Nikon Kwantu and Sam Bisbee”
-},
-{
-“category”: “Documentary Short Film”,
-“nominee”: “All the Empty Rooms”,
-“film”: “”,
-“additionalCredits”: “Joshua Seftel and Conall Jones”
-},
-{
-“category”: “Documentary Short Film”,
-“nominee”: “Armed Only with a Camera: The Life and Death of Brent Renaud”,
-“film”: “”,
-“additionalCredits”: “Craig Renaud and Juan Arredondo”
-},
-{
-“category”: “Documentary Short Film”,
-“nominee”: “Children No More: "Were and Are Gone"”,
-“film”: “”,
-“additionalCredits”: “Hilla Medalia and Sheila Nevins”
-},
-{
-“category”: “Documentary Short Film”,
-“nominee”: “The Devil Is Busy”,
-“film”: “”,
-“additionalCredits”: “Christalyn Hampton and Geeta Gandbhir”
-},
-{
-“category”: “Documentary Short Film”,
-“nominee”: “Perfectly a Strangeness”,
-“film”: “”,
-“additionalCredits”: “Alison McAlpine”
-},
-{
-“category”: “Film Editing”,
-“nominee”: “Stephen Mirrione”,
-“film”: “F1”,
-“additionalCredits”: “”
-},
-{
-“category”: “Film Editing”,
-“nominee”: “Ronald Bronstein and Josh Safdie”,
-“film”: “Marty Supreme”,
-“additionalCredits”: “”
-},
-{
-“category”: “Film Editing”,
-“nominee”: “Andy Jurgensen”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Film Editing”,
-“nominee”: “Olivier Bugge Coutté”,
-“film”: “Sentimental Value”,
-“additionalCredits”: “”
-},
-{
-“category”: “Film Editing”,
-“nominee”: “Michael P. Shawver”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “International Feature Film”,
-“nominee”: “The Secret Agent”,
-“film”: “”,
-“additionalCredits”: “Brazil”
-},
-{
-“category”: “International Feature Film”,
-“nominee”: “It Was Just an Accident”,
-“film”: “”,
-“additionalCredits”: “France”
-},
-{
-“category”: “International Feature Film”,
-“nominee”: “Sentimental Value”,
-“film”: “”,
-“additionalCredits”: “Norway”
-},
-{
-“category”: “International Feature Film”,
-“nominee”: “Sirāt”,
-“film”: “”,
-“additionalCredits”: “Spain”
-},
-{
-“category”: “International Feature Film”,
-“nominee”: “The Voice of Hind Rajab”,
-“film”: “”,
-“additionalCredits”: “Tunisia”
-},
-{
-“category”: “Live Action Short Film”,
-“nominee”: “Butcher’s Stain”,
-“film”: “”,
-“additionalCredits”: “Meyer Levinson-Blount and Oron Caspi”
-},
-{
-“category”: “Live Action Short Film”,
-“nominee”: “A Friend of Dorothy”,
-“film”: “”,
-“additionalCredits”: “Lee Knight and James Dean”
-},
-{
-“category”: “Live Action Short Film”,
-“nominee”: “Jane Austen’s Period Drama”,
-“film”: “”,
-“additionalCredits”: “Julia Aks and Steve Pinder”
-},
-{
-“category”: “Live Action Short Film”,
-“nominee”: “The Singers”,
-“film”: “”,
-“additionalCredits”: “Sam A. Davis and Jack Piatt”
-},
-{
-“category”: “Live Action Short Film”,
-“nominee”: “Two People Exchanging Saliva”,
-“film”: “”,
-“additionalCredits”: “Alexandre Singh and Natalie Musteata”
-},
-{
-“category”: “Makeup and Hairstyling”,
-“nominee”: “Mike Hill, Jordan Samuel and Cliona Furey”,
-“film”: “Frankenstein”,
-“additionalCredits”: “”
-},
-{
-“category”: “Makeup and Hairstyling”,
-“nominee”: “Kyoko Toyokawa, Naomi Hibino and Tadashi Nishimatsu”,
-“film”: “Kokuho”,
-“additionalCredits”: “”
-},
-{
-“category”: “Makeup and Hairstyling”,
-“nominee”: “Ken Diaz, Mike Fontaine and Shunika Terry”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Makeup and Hairstyling”,
-“nominee”: “Kazu Hiro, Glen Griffin and Bjoern Rehbein”,
-“film”: “The Smashing Machine”,
-“additionalCredits”: “”
-},
-{
-“category”: “Makeup and Hairstyling”,
-“nominee”: “Thomas Foldberg and Anne Cathrine Sauerberg”,
-“film”: “The Ugly Stepsister”,
-“additionalCredits”: “”
-},
-{
-“category”: “Music (Original Score)”,
-“nominee”: “Jerskin Fendrix”,
-“film”: “Bugonia”,
-“additionalCredits”: “”
-},
-{
-“category”: “Music (Original Score)”,
-“nominee”: “Alexandre Desplat”,
-“film”: “Frankenstein”,
-“additionalCredits”: “”
-},
-{
-“category”: “Music (Original Score)”,
-“nominee”: “Max Richter”,
-“film”: “Hamnet”,
-“additionalCredits”: “”
-},
-{
-“category”: “Music (Original Score)”,
-“nominee”: “Jonny Greenwood”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Music (Original Score)”,
-“nominee”: “Ludwig Goransson”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Music (Original Song)”,
-“nominee”: “Dear Me”,
-“film”: “Diane Warren: Relentless”,
-“additionalCredits”: “Music and Lyric by Diane Warren”
-},
-{
-“category”: “Music (Original Song)”,
-“nominee”: “Golden”,
-“film”: “KPop Demon Hunters”,
-“additionalCredits”: “Music and Lyric by EJAE, Mark Sonnenblick, Joong Gyu Kwak, Yu Han Lee, Hee Dong Nam, Jeong Hoon Seon and Teddy Park”
-},
-{
-“category”: “Music (Original Song)”,
-“nominee”: “I Lied To You”,
-“film”: “Sinners”,
-“additionalCredits”: “Music and Lyric by Raphael Saadiq and Ludwig Goransson”
-},
-{
-“category”: “Music (Original Song)”,
-“nominee”: “Sweet Dreams Of Joy”,
-“film”: “Viva Verdi!”,
-“additionalCredits”: “Music and Lyric by Nicholas Pike”
-},
-{
-“category”: “Music (Original Song)”,
-“nominee”: “Train Dreams”,
-“film”: “Train Dreams”,
-“additionalCredits”: “Music by Nick Cave and Bryce Dessner; Lyric by Nick Cave”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “Bugonia”,
-“film”: “”,
-“additionalCredits”: “Ed Guiney & Andrew Lowe, Yorgos Lanthimos, Emma Stone and Lars Knudsen, Producers”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “F1”,
-“film”: “”,
-“additionalCredits”: “Chad Oman, Brad Pitt, Dede Gardner, Jeremy Kleiner, Joseph Kosinski and Jerry Bruckheimer, Producers”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “Frankenstein”,
-“film”: “”,
-“additionalCredits”: “Guillermo del Toro, J. Miles Dale and Scott Stuber, Producers”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “Hamnet”,
-“film”: “”,
-“additionalCredits”: “Liza Marshall, Pippa Harris, Nicolas Gonda, Steven Spielberg and Sam Mendes, Producers”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “Marty Supreme”,
-“film”: “”,
-“additionalCredits”: “Eli Bush, Ronald Bronstein, Josh Safdie, Anthony Katagas and Timothée Chalamet, Producers”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “One Battle after Another”,
-“film”: “”,
-“additionalCredits”: “Adam Somner, Sara Murphy and Paul Thomas Anderson, Producers”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “The Secret Agent”,
-“film”: “”,
-“additionalCredits”: “Emilie Lesclaux, Producer”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “Sentimental Value”,
-“film”: “”,
-“additionalCredits”: “Maria Ekerhovd and Andrea Berentsen Ottmar, Producers”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “Sinners”,
-“film”: “”,
-“additionalCredits”: “Zinzi Coogler, Sev Ohanian and Ryan Coogler, Producers”
-},
-{
-“category”: “Best Picture”,
-“nominee”: “Train Dreams”,
-“film”: “”,
-“additionalCredits”: “Marissa McMahon, Teddy Schwarzman, Will Janowitz, Ashley Schlaifer and Michael Heimler, Producers”
-},
-{
-“category”: “Production Design”,
-“nominee”: “Frankenstein”,
-“film”: “”,
-“additionalCredits”: “Production Design: Tamara Deverell; Set Decoration: Shane Vieau”
-},
-{
-“category”: “Production Design”,
-“nominee”: “Hamnet”,
-“film”: “”,
-“additionalCredits”: “Production Design: Fiona Crombie; Set Decoration: Alice Felton”
-},
-{
-“category”: “Production Design”,
-“nominee”: “Marty Supreme”,
-“film”: “”,
-“additionalCredits”: “Production Design: Jack Fisk; Set Decoration: Adam Willis”
-},
-{
-“category”: “Production Design”,
-“nominee”: “One Battle after Another”,
-“film”: “”,
-“additionalCredits”: “Production Design: Florencia Martin; Set Decoration: Anthony Carlino”
-},
-{
-“category”: “Production Design”,
-“nominee”: “Sinners”,
-“film”: “”,
-“additionalCredits”: “Production Design: Hannah Beachler; Set Decoration: Monique Champagne”
-},
-{
-“category”: “Sound”,
-“nominee”: “Gareth John, Al Nelson, Gwendolyn Yates Whittle, Gary A. Rizzo and Juan Peralta”,
-“film”: “F1”,
-“additionalCredits”: “”
-},
-{
-“category”: “Sound”,
-“nominee”: “Greg Chapman, Nathan Robitaille, Nelson Ferreira, Christian Cooke and Brad Zoern”,
-“film”: “Frankenstein”,
-“additionalCredits”: “”
-},
-{
-“category”: “Sound”,
-“nominee”: “José Antonio García, Christopher Scarabosio and Tony Villaflor”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Sound”,
-“nominee”: “Chris Welcker, Benjamin A. Burtt, Felipe Pacheco, Brandon Proctor and Steve Boeddeker”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Sound”,
-“nominee”: “Amanda Villavieja, Laia Casanovas and Yasmina Praderas”,
-“film”: “Sirāt”,
-“additionalCredits”: “”
-},
-{
-“category”: “Visual Effects”,
-“nominee”: “Joe Letteri, Richard Baneham, Eric Saindon and Daniel Barrett”,
-“film”: “Avatar: Fire and Ash”,
-“additionalCredits”: “”
-},
-{
-“category”: “Visual Effects”,
-“nominee”: “Ryan Tudhope, Nicolas Chevallier, Robert Harrington and Keith Dawson”,
-“film”: “F1”,
-“additionalCredits”: “”
-},
-{
-“category”: “Visual Effects”,
-“nominee”: “David Vickery, Stephen Aplin, Charmaine Chan and Neil Corbould”,
-“film”: “Jurassic World Rebirth”,
-“additionalCredits”: “”
-},
-{
-“category”: “Visual Effects”,
-“nominee”: “Charlie Noble, David Zaretti, Russell Bowen and Brandon K. McLaughlin”,
-“film”: “The Lost Bus”,
-“additionalCredits”: “”
-},
-{
-“category”: “Visual Effects”,
-“nominee”: “Michael Ralla, Espen Nordahl, Guido Wolter and Donnie Dean”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Adapted Screenplay)”,
-“nominee”: “Will Tracy”,
-“film”: “Bugonia”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Adapted Screenplay)”,
-“nominee”: “Guillermo del Toro”,
-“film”: “Frankenstein”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Adapted Screenplay)”,
-“nominee”: “Chloé Zhao & Maggie O’Farrell”,
-“film”: “Hamnet”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Adapted Screenplay)”,
-“nominee”: “Paul Thomas Anderson”,
-“film”: “One Battle after Another”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Adapted Screenplay)”,
-“nominee”: “Clint Bentley & Greg Kwedar”,
-“film”: “Train Dreams”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Original Screenplay)”,
-“nominee”: “Robert Kaplow”,
-“film”: “Blue Moon”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Original Screenplay)”,
-“nominee”: “Jafar Panahi”,
-“film”: “It Was Just an Accident”,
-“additionalCredits”: “Script collaborators - Nader Saïvar, Shadmehr Rastin, Mehdi Mahmoudian”
-},
-{
-“category”: “Writing (Original Screenplay)”,
-“nominee”: “Ronald Bronstein & Josh Safdie”,
-“film”: “Marty Supreme”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Original Screenplay)”,
-“nominee”: “Eskil Vogt, Joachim Trier”,
-“film”: “Sentimental Value”,
-“additionalCredits”: “”
-},
-{
-“category”: “Writing (Original Screenplay)”,
-“nominee”: “Ryan Coogler”,
-“film”: “Sinners”,
-“additionalCredits”: “”
-}
-]
+  "ceremony": {
+    "year": 2026,
+    "edition": "98th Academy Awards",
+    "date": "Sunday, March 15, 2026",
+    "location": "Dolby Theatre at Ovation Hollywood",
+    "honoring": "Movies released in 2025"
+  },
+  "nominations": [
+    {
+      "category": "Actor in a Leading Role",
+      "nominee": "Timothée Chalamet",
+      "film": "Marty Supreme",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Leading Role",
+      "nominee": "Leonardo DiCaprio",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Leading Role",
+      "nominee": "Ethan Hawke",
+      "film": "Blue Moon",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Leading Role",
+      "nominee": "Michael B. Jordan",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Leading Role",
+      "nominee": "Wagner Moura",
+      "film": "The Secret Agent",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Supporting Role",
+      "nominee": "Benicio Del Toro",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Supporting Role",
+      "nominee": "Jacob Elordi",
+      "film": "Frankenstein",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Supporting Role",
+      "nominee": "Delroy Lindo",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Supporting Role",
+      "nominee": "Sean Penn",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actor in a Supporting Role",
+      "nominee": "Stellan Skarsgård",
+      "film": "Sentimental Value",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Leading Role",
+      "nominee": "Jessie Buckley",
+      "film": "Hamnet",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Leading Role",
+      "nominee": "Rose Byrne",
+      "film": "If I Had Legs I'd Kick You",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Leading Role",
+      "nominee": "Kate Hudson",
+      "film": "Song Sung Blue",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Leading Role",
+      "nominee": "Renate Reinsve",
+      "film": "Sentimental Value",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Leading Role",
+      "nominee": "Emma Stone",
+      "film": "Bugonia",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Supporting Role",
+      "nominee": "Elle Fanning",
+      "film": "Sentimental Value",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Supporting Role",
+      "nominee": "Inga Ibsdotter Lilleaas",
+      "film": "Sentimental Value",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Supporting Role",
+      "nominee": "Amy Madigan",
+      "film": "Weapons",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Supporting Role",
+      "nominee": "Wunmi Mosaku",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Actress in a Supporting Role",
+      "nominee": "Teyana Taylor",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Animated Feature Film",
+      "nominee": "Arco",
+      "film": "",
+      "additionalCredits": "Ugo Bienvenu, Félix de Givry, Sophie Mas and Natalie Portman"
+    },
+    {
+      "category": "Animated Feature Film",
+      "nominee": "Elio",
+      "film": "",
+      "additionalCredits": "Madeline Sharafian, Domee Shi, Adrian Molina and Mary Alice Drumm"
+    },
+    {
+      "category": "Animated Feature Film",
+      "nominee": "KPop Demon Hunters",
+      "film": "",
+      "additionalCredits": "Maggie Kang, Chris Appelhans and Michelle L.M. Wong"
+    },
+    {
+      "category": "Animated Feature Film",
+      "nominee": "Little Amélie or the Character of Rain",
+      "film": "",
+      "additionalCredits": "Maïlys Vallade, Liane-Cho Han, Nidia Santiago and Henri Magalon"
+    },
+    {
+      "category": "Animated Feature Film",
+      "nominee": "Zootopia 2",
+      "film": "",
+      "additionalCredits": "Jared Bush, Byron Howard and Yvett Merino"
+    },
+    {
+      "category": "Animated Short Film",
+      "nominee": "Butterfly",
+      "film": "",
+      "additionalCredits": "Florence Miailhe and Ron Dyens"
+    },
+    {
+      "category": "Animated Short Film",
+      "nominee": "Forevergreen",
+      "film": "",
+      "additionalCredits": "Nathan Engelhardt and Jeremy Spears"
+    },
+    {
+      "category": "Animated Short Film",
+      "nominee": "The Girl Who Cried Pearls",
+      "film": "",
+      "additionalCredits": "Chris Lavis and Maciek Szczerbowski"
+    },
+    {
+      "category": "Animated Short Film",
+      "nominee": "Retirement Plan",
+      "film": "",
+      "additionalCredits": "John Kelly and Andrew Freedman"
+    },
+    {
+      "category": "Animated Short Film",
+      "nominee": "The Three Sisters",
+      "film": "",
+      "additionalCredits": "Konstantin Bronzit"
+    },
+    {
+      "category": "Casting",
+      "nominee": "Nina Gold",
+      "film": "Hamnet",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Casting",
+      "nominee": "Jennifer Venditti",
+      "film": "Marty Supreme",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Casting",
+      "nominee": "Cassandra Kulukundis",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Casting",
+      "nominee": "Gabriel Domingues",
+      "film": "The Secret Agent",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Casting",
+      "nominee": "Francine Maisler",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Cinematography",
+      "nominee": "Dan Laustsen",
+      "film": "Frankenstein",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Cinematography",
+      "nominee": "Darius Khondji",
+      "film": "Marty Supreme",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Cinematography",
+      "nominee": "Michael Bauman",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Cinematography",
+      "nominee": "Autumn Durald Arkapaw",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Cinematography",
+      "nominee": "Adolpho Veloso",
+      "film": "Train Dreams",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Costume Design",
+      "nominee": "Deborah L. Scott",
+      "film": "Avatar: Fire and Ash",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Costume Design",
+      "nominee": "Kate Hawley",
+      "film": "Frankenstein",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Costume Design",
+      "nominee": "Malgosia Turzanska",
+      "film": "Hamnet",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Costume Design",
+      "nominee": "Miyako Bellizzi",
+      "film": "Marty Supreme",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Costume Design",
+      "nominee": "Ruth E. Carter",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Directing",
+      "nominee": "Chloé Zhao",
+      "film": "Hamnet",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Directing",
+      "nominee": "Josh Safdie",
+      "film": "Marty Supreme",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Directing",
+      "nominee": "Paul Thomas Anderson",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Directing",
+      "nominee": "Joachim Trier",
+      "film": "Sentimental Value",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Directing",
+      "nominee": "Ryan Coogler",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Documentary Feature Film",
+      "nominee": "The Alabama Solution",
+      "film": "",
+      "additionalCredits": "Andrew Jarecki and Charlotte Kaufman"
+    },
+    {
+      "category": "Documentary Feature Film",
+      "nominee": "Come See Me in the Good Light",
+      "film": "",
+      "additionalCredits": "Ryan White, Jessica Hargrave, Tig Notaro and Stef Willen"
+    },
+    {
+      "category": "Documentary Feature Film",
+      "nominee": "Cutting through Rocks",
+      "film": "",
+      "additionalCredits": "Sara Khaki and Mohammadreza Eyni"
+    },
+    {
+      "category": "Documentary Feature Film",
+      "nominee": "Mr. Nobody against Putin",
+      "film": "",
+      "additionalCredits": "Nominees to be determined"
+    },
+    {
+      "category": "Documentary Feature Film",
+      "nominee": "The Perfect Neighbor",
+      "film": "",
+      "additionalCredits": "Geeta Gandbhir, Alisa Payne, Nikon Kwantu and Sam Bisbee"
+    },
+    {
+      "category": "Documentary Short Film",
+      "nominee": "All the Empty Rooms",
+      "film": "",
+      "additionalCredits": "Joshua Seftel and Conall Jones"
+    },
+    {
+      "category": "Documentary Short Film",
+      "nominee": "Armed Only with a Camera: The Life and Death of Brent Renaud",
+      "film": "",
+      "additionalCredits": "Craig Renaud and Juan Arredondo"
+    },
+    {
+      "category": "Documentary Short Film",
+      "nominee": "Children No More: \"Were and Are Gone\"",
+      "film": "",
+      "additionalCredits": "Hilla Medalia and Sheila Nevins"
+    },
+    {
+      "category": "Documentary Short Film",
+      "nominee": "The Devil Is Busy",
+      "film": "",
+      "additionalCredits": "Christalyn Hampton and Geeta Gandbhir"
+    },
+    {
+      "category": "Documentary Short Film",
+      "nominee": "Perfectly a Strangeness",
+      "film": "",
+      "additionalCredits": "Alison McAlpine"
+    },
+    {
+      "category": "Film Editing",
+      "nominee": "Stephen Mirrione",
+      "film": "F1",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Film Editing",
+      "nominee": "Ronald Bronstein and Josh Safdie",
+      "film": "Marty Supreme",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Film Editing",
+      "nominee": "Andy Jurgensen",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Film Editing",
+      "nominee": "Olivier Bugge Coutté",
+      "film": "Sentimental Value",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Film Editing",
+      "nominee": "Michael P. Shawver",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "International Feature Film",
+      "nominee": "The Secret Agent",
+      "film": "",
+      "additionalCredits": "Brazil"
+    },
+    {
+      "category": "International Feature Film",
+      "nominee": "It Was Just an Accident",
+      "film": "",
+      "additionalCredits": "France"
+    },
+    {
+      "category": "International Feature Film",
+      "nominee": "Sentimental Value",
+      "film": "",
+      "additionalCredits": "Norway"
+    },
+    {
+      "category": "International Feature Film",
+      "nominee": "Sirāt",
+      "film": "",
+      "additionalCredits": "Spain"
+    },
+    {
+      "category": "International Feature Film",
+      "nominee": "The Voice of Hind Rajab",
+      "film": "",
+      "additionalCredits": "Tunisia"
+    },
+    {
+      "category": "Live Action Short Film",
+      "nominee": "Butcher's Stain",
+      "film": "",
+      "additionalCredits": "Meyer Levinson-Blount and Oron Caspi"
+    },
+    {
+      "category": "Live Action Short Film",
+      "nominee": "A Friend of Dorothy",
+      "film": "",
+      "additionalCredits": "Lee Knight and James Dean"
+    },
+    {
+      "category": "Live Action Short Film",
+      "nominee": "Jane Austen's Period Drama",
+      "film": "",
+      "additionalCredits": "Julia Aks and Steve Pinder"
+    },
+    {
+      "category": "Live Action Short Film",
+      "nominee": "The Singers",
+      "film": "",
+      "additionalCredits": "Sam A. Davis and Jack Piatt"
+    },
+    {
+      "category": "Live Action Short Film",
+      "nominee": "Two People Exchanging Saliva",
+      "film": "",
+      "additionalCredits": "Alexandre Singh and Natalie Musteata"
+    },
+    {
+      "category": "Makeup and Hairstyling",
+      "nominee": "Mike Hill, Jordan Samuel and Cliona Furey",
+      "film": "Frankenstein",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Makeup and Hairstyling",
+      "nominee": "Kyoko Toyokawa, Naomi Hibino and Tadashi Nishimatsu",
+      "film": "Kokuho",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Makeup and Hairstyling",
+      "nominee": "Ken Diaz, Mike Fontaine and Shunika Terry",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Makeup and Hairstyling",
+      "nominee": "Kazu Hiro, Glen Griffin and Bjoern Rehbein",
+      "film": "The Smashing Machine",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Makeup and Hairstyling",
+      "nominee": "Thomas Foldberg and Anne Cathrine Sauerberg",
+      "film": "The Ugly Stepsister",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Music (Original Score)",
+      "nominee": "Jerskin Fendrix",
+      "film": "Bugonia",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Music (Original Score)",
+      "nominee": "Alexandre Desplat",
+      "film": "Frankenstein",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Music (Original Score)",
+      "nominee": "Max Richter",
+      "film": "Hamnet",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Music (Original Score)",
+      "nominee": "Jonny Greenwood",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Music (Original Score)",
+      "nominee": "Ludwig Goransson",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Music (Original Song)",
+      "nominee": "Dear Me",
+      "film": "Diane Warren: Relentless",
+      "additionalCredits": "Music and Lyric by Diane Warren"
+    },
+    {
+      "category": "Music (Original Song)",
+      "nominee": "Golden",
+      "film": "KPop Demon Hunters",
+      "additionalCredits": "Music and Lyric by EJAE, Mark Sonnenblick, Joong Gyu Kwak, Yu Han Lee, Hee Dong Nam, Jeong Hoon Seon and Teddy Park"
+    },
+    {
+      "category": "Music (Original Song)",
+      "nominee": "I Lied To You",
+      "film": "Sinners",
+      "additionalCredits": "Music and Lyric by Raphael Saadiq and Ludwig Goransson"
+    },
+    {
+      "category": "Music (Original Song)",
+      "nominee": "Sweet Dreams Of Joy",
+      "film": "Viva Verdi!",
+      "additionalCredits": "Music and Lyric by Nicholas Pike"
+    },
+    {
+      "category": "Music (Original Song)",
+      "nominee": "Train Dreams",
+      "film": "Train Dreams",
+      "additionalCredits": "Music by Nick Cave and Bryce Dessner; Lyric by Nick Cave"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "Bugonia",
+      "film": "",
+      "additionalCredits": "Ed Guiney & Andrew Lowe, Yorgos Lanthimos, Emma Stone and Lars Knudsen, Producers"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "F1",
+      "film": "",
+      "additionalCredits": "Chad Oman, Brad Pitt, Dede Gardner, Jeremy Kleiner, Joseph Kosinski and Jerry Bruckheimer, Producers"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "Frankenstein",
+      "film": "",
+      "additionalCredits": "Guillermo del Toro, J. Miles Dale and Scott Stuber, Producers"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "Hamnet",
+      "film": "",
+      "additionalCredits": "Liza Marshall, Pippa Harris, Nicolas Gonda, Steven Spielberg and Sam Mendes, Producers"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "Marty Supreme",
+      "film": "",
+      "additionalCredits": "Eli Bush, Ronald Bronstein, Josh Safdie, Anthony Katagas and Timothée Chalamet, Producers"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "One Battle after Another",
+      "film": "",
+      "additionalCredits": "Adam Somner, Sara Murphy and Paul Thomas Anderson, Producers"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "The Secret Agent",
+      "film": "",
+      "additionalCredits": "Emilie Lesclaux, Producer"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "Sentimental Value",
+      "film": "",
+      "additionalCredits": "Maria Ekerhovd and Andrea Berentsen Ottmar, Producers"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "Sinners",
+      "film": "",
+      "additionalCredits": "Zinzi Coogler, Sev Ohanian and Ryan Coogler, Producers"
+    },
+    {
+      "category": "Best Picture",
+      "nominee": "Train Dreams",
+      "film": "",
+      "additionalCredits": "Marissa McMahon, Teddy Schwarzman, Will Janowitz, Ashley Schlaifer and Michael Heimler, Producers"
+    },
+    {
+      "category": "Production Design",
+      "nominee": "Frankenstein",
+      "film": "",
+      "additionalCredits": "Production Design: Tamara Deverell; Set Decoration: Shane Vieau"
+    },
+    {
+      "category": "Production Design",
+      "nominee": "Hamnet",
+      "film": "",
+      "additionalCredits": "Production Design: Fiona Crombie; Set Decoration: Alice Felton"
+    },
+    {
+      "category": "Production Design",
+      "nominee": "Marty Supreme",
+      "film": "",
+      "additionalCredits": "Production Design: Jack Fisk; Set Decoration: Adam Willis"
+    },
+    {
+      "category": "Production Design",
+      "nominee": "One Battle after Another",
+      "film": "",
+      "additionalCredits": "Production Design: Florencia Martin; Set Decoration: Anthony Carlino"
+    },
+    {
+      "category": "Production Design",
+      "nominee": "Sinners",
+      "film": "",
+      "additionalCredits": "Production Design: Hannah Beachler; Set Decoration: Monique Champagne"
+    },
+    {
+      "category": "Sound",
+      "nominee": "Gareth John, Al Nelson, Gwendolyn Yates Whittle, Gary A. Rizzo and Juan Peralta",
+      "film": "F1",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Sound",
+      "nominee": "Greg Chapman, Nathan Robitaille, Nelson Ferreira, Christian Cooke and Brad Zoern",
+      "film": "Frankenstein",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Sound",
+      "nominee": "José Antonio García, Christopher Scarabosio and Tony Villaflor",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Sound",
+      "nominee": "Chris Welcker, Benjamin A. Burtt, Felipe Pacheco, Brandon Proctor and Steve Boeddeker",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Sound",
+      "nominee": "Amanda Villavieja, Laia Casanovas and Yasmina Praderas",
+      "film": "Sirāt",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Visual Effects",
+      "nominee": "Joe Letteri, Richard Baneham, Eric Saindon and Daniel Barrett",
+      "film": "Avatar: Fire and Ash",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Visual Effects",
+      "nominee": "Ryan Tudhope, Nicolas Chevallier, Robert Harrington and Keith Dawson",
+      "film": "F1",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Visual Effects",
+      "nominee": "David Vickery, Stephen Aplin, Charmaine Chan and Neil Corbould",
+      "film": "Jurassic World Rebirth",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Visual Effects",
+      "nominee": "Charlie Noble, David Zaretti, Russell Bowen and Brandon K. McLaughlin",
+      "film": "The Lost Bus",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Visual Effects",
+      "nominee": "Michael Ralla, Espen Nordahl, Guido Wolter and Donnie Dean",
+      "film": "Sinners",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Adapted Screenplay)",
+      "nominee": "Will Tracy",
+      "film": "Bugonia",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Adapted Screenplay)",
+      "nominee": "Guillermo del Toro",
+      "film": "Frankenstein",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Adapted Screenplay)",
+      "nominee": "Chloé Zhao & Maggie O'Farrell",
+      "film": "Hamnet",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Adapted Screenplay)",
+      "nominee": "Paul Thomas Anderson",
+      "film": "One Battle after Another",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Adapted Screenplay)",
+      "nominee": "Clint Bentley & Greg Kwedar",
+      "film": "Train Dreams",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Original Screenplay)",
+      "nominee": "Robert Kaplow",
+      "film": "Blue Moon",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Original Screenplay)",
+      "nominee": "Jafar Panahi",
+      "film": "It Was Just an Accident",
+      "additionalCredits": "Script collaborators - Nader Saïvar, Shadmehr Rastin, Mehdi Mahmoudian"
+    },
+    {
+      "category": "Writing (Original Screenplay)",
+      "nominee": "Ronald Bronstein & Josh Safdie",
+      "film": "Marty Supreme",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Original Screenplay)",
+      "nominee": "Eskil Vogt, Joachim Trier",
+      "film": "Sentimental Value",
+      "additionalCredits": ""
+    },
+    {
+      "category": "Writing (Original Screenplay)",
+      "nominee": "Ryan Coogler",
+      "film": "Sinners",
+      "additionalCredits": ""
+    }
+  ]
 }
