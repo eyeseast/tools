@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Ingredient Scaler</title>
+
+    <!-- Open Graph metadata -->
+    <meta property="og:title" content="Recipe Ingredient Scaler" />
+    <meta
+      property="og:description"
+      content="Paste any recipe and scale ingredient quantities up or down for different serving sizes." />
+    <meta property="og:type" content="website" />
     <style>
       * {
         margin: 0;
@@ -15,7 +22,8 @@
         font-family:
           -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
           Cantarell, sans-serif;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: #fafafa;
+        color: #222;
         min-height: 100vh;
         padding: 20px;
       }
@@ -24,25 +32,23 @@
         max-width: 800px;
         margin: 0 auto;
         background: white;
-        border-radius: 16px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
         overflow: hidden;
       }
 
       .header {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        padding: 30px;
-        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 24px 30px;
       }
 
       .header h1 {
-        font-size: 28px;
-        margin-bottom: 8px;
+        font-size: 22px;
+        margin-bottom: 4px;
       }
 
       .header p {
-        opacity: 0.9;
+        color: #666;
         font-size: 14px;
       }
 
@@ -70,12 +76,13 @@
         font-family: inherit;
         font-size: 14px;
         resize: vertical;
+        field-sizing: content;
         transition: border-color 0.3s;
       }
 
       textarea:focus {
         outline: none;
-        border-color: #667eea;
+        border-color: #222;
       }
 
       .controls {
@@ -102,7 +109,7 @@
 
       input[type="number"]:focus {
         outline: none;
-        border-color: #667eea;
+        border-color: #222;
       }
 
       .scale-buttons {
@@ -111,34 +118,28 @@
       }
 
       button {
-        padding: 12px 24px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 10px 20px;
+        background: #222;
         color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 600;
+        border: 1px solid #222;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 500;
         cursor: pointer;
-        transition:
-          transform 0.2s,
-          box-shadow 0.2s;
       }
 
       button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-      }
-
-      button:active {
-        transform: translateY(0);
+        background: #000;
       }
 
       .btn-secondary {
-        background: #6c757d;
+        background: white;
+        color: #222;
+        border-color: #ccc;
       }
 
       .btn-secondary:hover {
-        box-shadow: 0 4px 12px rgba(108, 117, 125, 0.4);
+        background: #f0f0f0;
       }
 
       .results {
@@ -168,7 +169,7 @@
 
       .ingredient-scaled {
         font-weight: 600;
-        color: #667eea;
+        color: #222;
       }
 
       .no-results {
@@ -178,13 +179,13 @@
       }
 
       .scale-factor {
-        background: #f8f9fa;
-        padding: 15px;
-        border-radius: 8px;
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 6px;
         text-align: center;
         margin-bottom: 20px;
-        font-weight: 600;
-        color: #667eea;
+        font-weight: 500;
+        color: #444;
       }
     </style>
   </head>
@@ -198,12 +199,19 @@
       <div class="content">
         <div class="input-section">
           <label for="ingredients">Paste Your Ingredients:</label>
-          <textarea
-            id="ingredients"
-            placeholder="Example:&#10;2 cups flour&#10;1/2 teaspoon salt&#10;3 eggs&#10;1.5 cups milk&#10;250g butter"
-          ></textarea>
+          <textarea id="ingredients">
+1/2 cup paprika
+1/4 cup kosher salt, finely ground
+1/4 cup sugar
+2 tablespoons mustard powder
+1/4 cup chili powder
+1/4 cup ground cumin
+2 tablespoons ground black pepper
+1/4 cup granulated garlic
+2 tablespoons cayenne
+</textarea
+          >
         </div>
-
         <div class="controls">
           <div class="control-group">
             <label for="originalServings">Original Servings:</label>
