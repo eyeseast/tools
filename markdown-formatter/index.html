@@ -1,0 +1,653 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Markdown Formatter</title>
+
+    <meta property="og:title" content="Markdown Formatter" />
+    <meta
+      property="og:description"
+      content="Paste messy markdown and get back clean, readable markdown with tidy tables and consistent spacing." />
+    <meta property="og:type" content="website" />
+    <script src="marked.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: #fafafa;
+        color: #222;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .header {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 24px 30px;
+      }
+
+      .header h1 {
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+
+      .header p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .content {
+        padding: 30px;
+      }
+
+      .panel {
+        margin-bottom: 24px;
+      }
+
+      .panel-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      label {
+        display: block;
+        font-weight: 600;
+        color: #333;
+      }
+
+      textarea {
+        width: 100%;
+        min-height: 240px;
+        padding: 12px;
+        border: 2px solid #e0e0e0;
+        border-radius: 8px;
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 13px;
+        line-height: 1.5;
+        resize: vertical;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        transition: border-color 0.3s;
+      }
+
+      textarea:focus {
+        outline: none;
+        border-color: #222;
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+      }
+
+      button {
+        padding: 10px 20px;
+        background: #222;
+        color: white;
+        border: 1px solid #222;
+        border-radius: 6px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #000;
+      }
+
+      .btn-secondary {
+        background: white;
+        color: #222;
+        border-color: #ccc;
+      }
+
+      .btn-secondary:hover {
+        background: #f0f0f0;
+      }
+
+      .btn-small {
+        padding: 4px 10px;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .status {
+        font-size: 13px;
+        color: #666;
+        min-height: 18px;
+      }
+
+      .preview {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 20px 24px;
+        background: #fff;
+        line-height: 1.55;
+        font-size: 15px;
+        color: #222;
+        overflow-wrap: break-word;
+      }
+
+      .preview:empty::before {
+        content: "Rendered output will appear here.";
+        color: #999;
+        font-style: italic;
+      }
+
+      .preview > *:first-child {
+        margin-top: 0;
+      }
+
+      .preview > *:last-child {
+        margin-bottom: 0;
+      }
+
+      .preview h1,
+      .preview h2,
+      .preview h3,
+      .preview h4,
+      .preview h5,
+      .preview h6 {
+        margin: 1.2em 0 0.5em;
+        line-height: 1.25;
+      }
+
+      .preview h1 {
+        font-size: 1.8em;
+      }
+      .preview h2 {
+        font-size: 1.4em;
+      }
+      .preview h3 {
+        font-size: 1.15em;
+      }
+
+      .preview p,
+      .preview ul,
+      .preview ol,
+      .preview blockquote,
+      .preview pre,
+      .preview table {
+        margin: 0.8em 0;
+      }
+
+      .preview ul,
+      .preview ol {
+        padding-left: 1.6em;
+      }
+
+      .preview li {
+        margin: 0.2em 0;
+      }
+
+      .preview blockquote {
+        border-left: 3px solid #ccc;
+        padding: 0 1em;
+        color: #555;
+      }
+
+      .preview code {
+        background: #f4f4f4;
+        padding: 1px 5px;
+        border-radius: 4px;
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.9em;
+      }
+
+      .preview pre {
+        background: #f4f4f4;
+        padding: 12px 14px;
+        border-radius: 6px;
+        overflow-x: auto;
+      }
+
+      .preview pre code {
+        background: transparent;
+        padding: 0;
+      }
+
+      .preview table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .preview th,
+      .preview td {
+        border: 1px solid #e0e0e0;
+        padding: 6px 10px;
+        text-align: left;
+      }
+
+      .preview th {
+        background: #f8f8f8;
+      }
+
+      .preview a {
+        color: #0066cc;
+      }
+
+      .preview hr {
+        border: 0;
+        border-top: 1px solid #e0e0e0;
+        margin: 1.4em 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Markdown Formatter</h1>
+        <p>Paste messy markdown, get back something clean and readable.</p>
+      </div>
+
+      <div class="content">
+        <div class="panel">
+          <div class="panel-head">
+            <label for="input">Input</label>
+          </div>
+          <textarea
+            id="input"
+            spellcheck="false"
+            placeholder="Paste markdown here..."></textarea>
+        </div>
+
+        <div class="actions">
+          <button onclick="formatNow()">Format</button>
+          <button class="btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <label for="output">Output</label>
+            <button class="btn-secondary btn-small" onclick="copyOutput()">
+              Copy
+            </button>
+          </div>
+          <textarea id="output" spellcheck="false" readonly></textarea>
+          <div class="status" id="status"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <label>Preview</label>
+          </div>
+          <div class="preview" id="preview"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function formatMarkdown(text) {
+        // Normalize line endings and strip trailing whitespace per line.
+        const lines = text
+          .replace(/\r\n?/g, "\n")
+          .split("\n")
+          .map((l) => l.replace(/[ \t]+$/, ""));
+
+        // Pass over the lines and group them into blocks. A block is either
+        // a fenced code block, a table, or a run of regular markdown lines.
+        const blocks = [];
+        let i = 0;
+        while (i < lines.length) {
+          const line = lines[i];
+
+          // Fenced code block: preserve contents verbatim.
+          const fenceMatch = line.match(/^(\s*)(```+|~~~+)(.*)$/);
+          if (fenceMatch) {
+            const fence = fenceMatch[2];
+            const buf = [line];
+            i++;
+            while (i < lines.length) {
+              buf.push(lines[i]);
+              if (lines[i].trim().startsWith(fence)) {
+                i++;
+                break;
+              }
+              i++;
+            }
+            blocks.push({ type: "code", lines: buf });
+            continue;
+          }
+
+          // Table: a header row followed by a separator row of dashes.
+          if (
+            isTableRow(line) &&
+            i + 1 < lines.length &&
+            isTableSeparator(lines[i + 1])
+          ) {
+            const buf = [line, lines[i + 1]];
+            i += 2;
+            while (i < lines.length && isTableRow(lines[i])) {
+              buf.push(lines[i]);
+              i++;
+            }
+            blocks.push({ type: "table", lines: buf });
+            continue;
+          }
+
+          // Blank line: collapse runs of blanks into a single separator.
+          if (line.trim() === "") {
+            i++;
+            continue;
+          }
+
+          // Regular block: collect until a blank line, fence, or table starts.
+          const buf = [line];
+          i++;
+          while (i < lines.length) {
+            const next = lines[i];
+            if (next.trim() === "") break;
+            if (/^\s*(```+|~~~+)/.test(next)) break;
+            if (
+              isTableRow(next) &&
+              i + 1 < lines.length &&
+              isTableSeparator(lines[i + 1])
+            )
+              break;
+            buf.push(next);
+            i++;
+          }
+          blocks.push({ type: "text", lines: buf });
+        }
+
+        const formatted = blocks.map(renderBlock);
+        return formatted.join("\n\n").replace(/\s+$/, "") + "\n";
+      }
+
+      function isTableRow(line) {
+        const t = line.trim();
+        if (!t.includes("|")) return false;
+        // At least one pipe that isn't escaped.
+        return /(^\||[^\\]\|)/.test(t);
+      }
+
+      function isTableSeparator(line) {
+        const t = line.trim().replace(/^\||\|$/g, "");
+        if (!t) return false;
+        const cells = t.split("|");
+        return cells.every((c) => /^\s*:?-+:?\s*$/.test(c));
+      }
+
+      function splitTableRow(line) {
+        let t = line.trim();
+        if (t.startsWith("|")) t = t.slice(1);
+        if (t.endsWith("|") && !t.endsWith("\\|")) t = t.slice(0, -1);
+        // Split on unescaped pipes.
+        const cells = [];
+        let cur = "";
+        for (let i = 0; i < t.length; i++) {
+          const ch = t[i];
+          if (ch === "\\" && t[i + 1] === "|") {
+            cur += "|";
+            i++;
+          } else if (ch === "|") {
+            cells.push(cur.trim());
+            cur = "";
+          } else {
+            cur += ch;
+          }
+        }
+        cells.push(cur.trim());
+        return cells;
+      }
+
+      function renderBlock(block) {
+        if (block.type === "code") {
+          return block.lines.join("\n");
+        }
+        if (block.type === "table") {
+          return renderTable(block.lines);
+        }
+        return renderText(block.lines);
+      }
+
+      function renderTable(rows) {
+        const header = splitTableRow(rows[0]);
+        const sep = splitTableRow(rows[1]);
+        const body = rows.slice(2).map(splitTableRow);
+
+        // Normalize all rows to the header's column count.
+        const cols = header.length;
+        const normalize = (row) => {
+          const r = row.slice(0, cols);
+          while (r.length < cols) r.push("");
+          return r;
+        };
+        const bodyRows = body.map(normalize);
+
+        // Determine alignment from the separator row.
+        const aligns = sep.slice(0, cols).map((cell) => {
+          const c = cell.trim();
+          const left = c.startsWith(":");
+          const right = c.endsWith(":");
+          if (left && right) return "center";
+          if (right) return "right";
+          if (left) return "left";
+          return null;
+        });
+        while (aligns.length < cols) aligns.push(null);
+
+        // Column widths: at least 3 to keep separator dashes readable.
+        const widths = [];
+        for (let c = 0; c < cols; c++) {
+          let w = visualWidth(header[c] || "");
+          for (const r of bodyRows) w = Math.max(w, visualWidth(r[c] || ""));
+          widths.push(Math.max(3, w));
+        }
+
+        const pad = (cell, w, align) => {
+          const extra = w - visualWidth(cell);
+          if (extra <= 0) return cell;
+          if (align === "right") return " ".repeat(extra) + cell;
+          if (align === "center") {
+            const left = Math.floor(extra / 2);
+            return " ".repeat(left) + cell + " ".repeat(extra - left);
+          }
+          return cell + " ".repeat(extra);
+        };
+
+        const headerLine =
+          "| " +
+          header.map((c, idx) => pad(c, widths[idx], aligns[idx])).join(" | ") +
+          " |";
+
+        const sepLine =
+          "|" +
+          widths
+            .map((w, idx) => {
+              const a = aligns[idx];
+              if (a === "center") return ":" + "-".repeat(w) + ":";
+              if (a === "right") return "-".repeat(w + 1) + ":";
+              if (a === "left") return ":" + "-".repeat(w + 1);
+              return "-".repeat(w + 2);
+            })
+            .join("|") +
+          "|";
+
+        const bodyLines = bodyRows.map(
+          (r) =>
+            "| " +
+            r.map((c, idx) => pad(c, widths[idx], aligns[idx])).join(" | ") +
+            " |",
+        );
+
+        return [headerLine, sepLine, ...bodyLines].join("\n");
+      }
+
+      function visualWidth(s) {
+        return s.length;
+      }
+
+      function renderText(lines) {
+        const normalized = lines.map(normalizeLine);
+        return joinContinuations(normalized).join("\n");
+      }
+
+      function normalizeLine(line) {
+        // Horizontal rule: 3+ of the same -, *, or _ becomes ---.
+        if (/^\s*([-*_])(?:\s*\1){2,}\s*$/.test(line)) {
+          return "---";
+        }
+
+        // ATX heading: normalize to a single space after the #s and strip
+        // trailing closing #s. Accepts the "#Heading" missing-space typo.
+        const heading = line.match(/^(\s*)(#{1,6})([ \t]+.*|[A-Za-z0-9].*)?[ \t]*$/);
+        if (heading) {
+          let content = (heading[3] || "").trim();
+          content = content.replace(/[ \t]+#+[ \t]*$/, "").trim();
+          return content ? `${heading[2]} ${content}` : heading[2];
+        }
+
+        // Unordered list: normalize *, +, - to - with one space.
+        const ul = line.match(/^(\s*)[-*+]\s+(.*)$/);
+        if (ul) return `${ul[1]}- ${ul[2]}`;
+
+        // Ordered list: normalize "1.  " or "1)" to "1. ".
+        const ol = line.match(/^(\s*)(\d+)[.)]\s+(.*)$/);
+        if (ol) return `${ol[1]}${ol[2]}. ${ol[3]}`;
+
+        // Blockquote: ensure a single space after each >.
+        if (/^\s*>/.test(line)) {
+          return line.replace(/^(\s*)((?:>\s*)+)(.*)$/, (_, lead, q, rest) => {
+            const depth = (q.match(/>/g) || []).length;
+            const prefix = "> ".repeat(depth).trimEnd();
+            return `${lead}${prefix}${rest ? " " + rest.trim() : ""}`;
+          });
+        }
+
+        return line;
+      }
+
+      // Collapse hard-wrapped lines inside a block into one long line per
+      // logical unit so the textarea / renderer can wrap them naturally.
+      // Headings, HRs, and list-item starts begin new units; paragraph and
+      // same-depth blockquote continuations fold into the prior line.
+      function joinContinuations(lines) {
+        const out = [];
+        for (const line of lines) {
+          if (out.length === 0) {
+            out.push(line);
+            continue;
+          }
+          const prev = out[out.length - 1];
+          const prevT = lineType(prev);
+          const curT = lineType(line);
+
+          if (prevT === "blockquote" && curT === "blockquote") {
+            const pd = blockquoteDepth(prev);
+            const cd = blockquoteDepth(line);
+            if (pd === cd) {
+              const content = line.replace(/^\s*(?:>\s*)+/, "").trim();
+              out[out.length - 1] = prev + (content ? " " + content : "");
+              continue;
+            }
+          }
+
+          if (
+            curT === "paragraph" &&
+            prevT !== "heading" &&
+            prevT !== "hr"
+          ) {
+            out[out.length - 1] = prev + " " + line.trim();
+            continue;
+          }
+
+          out.push(line);
+        }
+        return out;
+      }
+
+      function lineType(line) {
+        const t = line.trim();
+        if (/^#{1,6}(\s|$)/.test(t)) return "heading";
+        if (t === "---") return "hr";
+        if (/^-\s/.test(t) || /^\d+\.\s/.test(t)) return "list";
+        if (/^>/.test(t)) return "blockquote";
+        return "paragraph";
+      }
+
+      function blockquoteDepth(line) {
+        const m = line.match(/^\s*((?:>\s*)+)/);
+        if (!m) return 0;
+        return (m[1].match(/>/g) || []).length;
+      }
+
+      function formatNow() {
+        const input = document.getElementById("input").value;
+        const out = document.getElementById("output");
+        const preview = document.getElementById("preview");
+        const status = document.getElementById("status");
+        if (!input.trim()) {
+          out.value = "";
+          preview.innerHTML = "";
+          status.textContent = "Paste some markdown to format.";
+          return;
+        }
+        try {
+          const formatted = formatMarkdown(input);
+          out.value = formatted;
+          preview.innerHTML = marked.parse(formatted, {
+            gfm: true,
+            breaks: false,
+          });
+          status.textContent = "Formatted.";
+        } catch (e) {
+          status.textContent = "Error: " + e.message;
+        }
+      }
+
+      function clearAll() {
+        document.getElementById("input").value = "";
+        document.getElementById("output").value = "";
+        document.getElementById("preview").innerHTML = "";
+        document.getElementById("status").textContent = "";
+      }
+
+      async function copyOutput() {
+        const out = document.getElementById("output");
+        const status = document.getElementById("status");
+        if (!out.value) {
+          status.textContent = "Nothing to copy.";
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(out.value);
+          status.textContent = "Copied to clipboard.";
+        } catch {
+          out.select();
+          document.execCommand("copy");
+          status.textContent = "Copied to clipboard.";
+        }
+      }
+
+      document.getElementById("input").addEventListener("keydown", (e) => {
+        if ((e.metaKey || e.ctrlKey) && e.key === "Enter") {
+          e.preventDefault();
+          formatNow();
+        }
+      });
+    </script>
+  </body>
+</html>
