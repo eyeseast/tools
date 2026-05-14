@@ -9,3 +9,4 @@ Each tool exists in a single directory with an `index.html` file. Most are a sin
 - [Interval timer](https://eyeseast.github.io/tools/interval-timer/)
 - [Recipe adjuster](https://eyeseast.github.io/tools/recipe-adjustments/)
 - [2026 Oscar nominated films](https://eyeseast.github.io/tools/oscars-2026/)
+- [Markdown formatter](https://eyeseast.github.io/tools/markdown-formatter/)
