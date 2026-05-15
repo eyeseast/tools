@@ -10,3 +10,4 @@ Each tool exists in a single directory with an `index.html` file. Most are a sin
 - [Recipe adjuster](https://eyeseast.github.io/tools/recipe-adjustments/)
 - [2026 Oscar nominated films](https://eyeseast.github.io/tools/oscars-2026/)
 - [Markdown formatter](https://eyeseast.github.io/tools/markdown-formatter/)
+- [MuckRock homepage sections editor](https://eyeseast.github.io/tools/muckrock-homepage-sections/)
