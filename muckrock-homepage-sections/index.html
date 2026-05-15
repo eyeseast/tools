@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MuckRock Homepage Sections Editor</title>
+
+    <meta property="og:title" content="MuckRock Homepage Sections Editor" />
+    <meta
+      property="og:description"
+      content="Edit MuckRock homepage sections and generate a new sections.json file." />
+    <meta property="og:type" content="website" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+          Cantarell, sans-serif;
+        background: #fafafa;
+        color: #222;
+        min-height: 100vh;
+        padding: 20px;
+        line-height: 1.4;
+      }
+
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .header {
+        border-bottom: 1px solid #e0e0e0;
+        padding: 24px 30px;
+      }
+
+      .header h1 {
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+
+      .header p {
+        color: #666;
+        font-size: 14px;
+      }
+
+      .toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 16px 30px;
+        border-bottom: 1px solid #e0e0e0;
+        background: #f7f7f7;
+      }
+
+      .content {
+        padding: 24px 30px;
+      }
+
+      h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      button {
+        font: inherit;
+        padding: 8px 14px;
+        border: 1px solid #ccc;
+        background: white;
+        border-radius: 5px;
+        cursor: pointer;
+        color: #222;
+      }
+
+      button:hover {
+        background: #f0f0f0;
+      }
+
+      button.primary {
+        background: #1a3b6e;
+        color: white;
+        border-color: #1a3b6e;
+      }
+
+      button.primary:hover {
+        background: #25579e;
+      }
+
+      button.danger {
+        color: #a02020;
+        border-color: #d8b8b8;
+      }
+
+      button.danger:hover {
+        background: #fbeaea;
+      }
+
+      button.tiny {
+        padding: 3px 8px;
+        font-size: 12px;
+      }
+
+      .section-card {
+        border: 1px solid #d8d8d8;
+        border-radius: 6px;
+        margin-bottom: 18px;
+        background: #fff;
+      }
+
+      .section-card.invalid {
+        border-color: #d8a0a0;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 14px;
+        background: #f0f3f7;
+        border-bottom: 1px solid #d8d8d8;
+        border-radius: 6px 6px 0 0;
+      }
+
+      .section-head h3 {
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .section-controls {
+        display: flex;
+        gap: 6px;
+      }
+
+      .section-body {
+        padding: 14px;
+      }
+
+      .field {
+        margin-bottom: 12px;
+      }
+
+      .field label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+      }
+
+      .field input[type="text"],
+      .field textarea,
+      .field select {
+        width: 100%;
+        padding: 7px 9px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font: inherit;
+        font-size: 14px;
+        background: white;
+      }
+
+      .field input[type="text"]:focus,
+      .field textarea:focus,
+      .field select:focus {
+        outline: none;
+        border-color: #1a3b6e;
+        box-shadow: 0 0 0 2px rgba(26, 59, 110, 0.15);
+      }
+
+      .field textarea {
+        min-height: 60px;
+        resize: vertical;
+      }
+
+      .field.error input[type="text"],
+      .field.error textarea {
+        border-color: #c54040;
+        background: #fdf6f6;
+      }
+
+      .field .error-msg {
+        color: #b03030;
+        font-size: 12px;
+        margin-top: 3px;
+      }
+
+      .links-block {
+        margin-top: 10px;
+        padding: 10px;
+        border: 1px dashed #d0d0d0;
+        border-radius: 4px;
+        background: #fafafa;
+      }
+
+      .links-block-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .link-card {
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        background: white;
+        margin-bottom: 8px;
+      }
+
+      .link-card.invalid {
+        border-color: #d8a0a0;
+      }
+
+      .link-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 10px;
+        background: #f7f7f7;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .link-head span {
+        font-size: 13px;
+        color: #555;
+      }
+
+      .link-controls {
+        display: flex;
+        gap: 4px;
+      }
+
+      .link-body {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .link-body .field.span-2 {
+        grid-column: span 2;
+      }
+
+      .icon-row {
+        display: flex;
+        gap: 6px;
+      }
+
+      .icon-row select {
+        flex: 0 0 auto;
+        width: auto;
+      }
+
+      .icon-row input {
+        flex: 1;
+      }
+
+      .output-panel {
+        margin-top: 24px;
+        border-top: 1px solid #e0e0e0;
+        padding-top: 18px;
+      }
+
+      .output-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+
+      .validation-summary {
+        margin-bottom: 14px;
+        padding: 10px 12px;
+        border-radius: 5px;
+        font-size: 13px;
+      }
+
+      .validation-summary.ok {
+        background: #ebf6ec;
+        border: 1px solid #b6dbb9;
+        color: #2c5a30;
+      }
+
+      .validation-summary.bad {
+        background: #fbeaea;
+        border: 1px solid #e3b9b9;
+        color: #8a2929;
+      }
+
+      .validation-summary ul {
+        margin: 6px 0 0 18px;
+      }
+
+      .json-output {
+        width: 100%;
+        min-height: 280px;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12.5px;
+        background: #fcfcfc;
+        resize: vertical;
+      }
+
+      .import-modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        z-index: 50;
+      }
+
+      .import-modal.open {
+        display: flex;
+      }
+
+      .import-modal-content {
+        background: white;
+        border-radius: 8px;
+        max-width: 700px;
+        width: 100%;
+        padding: 20px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .import-modal h2 {
+        margin-bottom: 10px;
+      }
+
+      .import-modal textarea {
+        width: 100%;
+        min-height: 240px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+        font-size: 12.5px;
+        margin-top: 8px;
+        resize: vertical;
+      }
+
+      .import-modal-actions {
+        display: flex;
+        gap: 8px;
+        justify-content: flex-end;
+        margin-top: 12px;
+      }
+
+      .import-error {
+        color: #b03030;
+        font-size: 13px;
+        margin-top: 8px;
+        min-height: 18px;
+      }
+
+      .flash {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #1a3b6e;
+        color: white;
+        padding: 10px 16px;
+        border-radius: 5px;
+        font-size: 13px;
+        opacity: 0;
+        transform: translateY(10px);
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+        pointer-events: none;
+      }
+
+      .flash.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      @media (max-width: 640px) {
+        .link-body {
+          grid-template-columns: 1fr;
+        }
+
+        .link-body .field.span-2 {
+          grid-column: span 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>MuckRock Homepage Sections Editor</h1>
+        <p>
+          Edit homepage section data and generate a new <code>sections.json</code>.
+          Each section is validated against a schema as you type.
+        </p>
+      </div>
+
+      <div class="toolbar">
+        <button id="add-section" class="primary">+ Add section</button>
+        <button id="import-btn">Import JSON…</button>
+        <button id="reset-btn">Reset to default</button>
+        <button id="download-btn">Download sections.json</button>
+        <button id="copy-btn">Copy JSON</button>
+      </div>
+
+      <div class="content">
+        <div id="validation-summary" class="validation-summary ok">
+          All sections are valid.
+        </div>
+
+        <div id="sections-list"></div>
+
+        <div class="output-panel">
+          <div class="output-head">
+            <h2>Generated JSON</h2>
+          </div>
+          <textarea
+            id="json-output"
+            class="json-output"
+            readonly
+            spellcheck="false"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="import-modal" id="import-modal">
+      <div class="import-modal-content">
+        <h2>Import JSON</h2>
+        <p style="font-size: 13px; color: #666">
+          Paste a sections JSON array. The current data will be replaced.
+        </p>
+        <textarea id="import-text" spellcheck="false"></textarea>
+        <div class="import-error" id="import-error"></div>
+        <div class="import-modal-actions">
+          <button id="import-cancel">Cancel</button>
+          <button id="import-confirm" class="primary">Import</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="flash" id="flash"></div>
+
+    <script>
+      // Default data — the initial sections.json from the gist.
+      const DEFAULT_DATA = [
+        {
+          description:
+            "We gather once a month to share updates on public records laws and rulings, techniques, tricks and insider tips from fellow requesters.",
+          links: [
+            {
+              href: "https://www.muckrock.com/project/foiafriday-a-community-podcast-about-all-things-foia-and-public-records-1172",
+              icon: "lib/component/icon/bookmark.svg",
+              target: "_blank",
+              text: "Learn more about FOIAFriday",
+              title: "FOIAFriday project page",
+            },
+            {
+              href: "https://us02web.zoom.us/webinar/register/WN_IO118V-qRzO40LQMKqTFxA",
+              icon: "lib/component/icon/mic.svg",
+              target: "_blank",
+              text: "Join our next call",
+              title: "FOIAFriday registration on Zoom",
+            },
+            {
+              href: "https://www.youtube.com/playlist?list=PLBGm5TjywchNbi1z3UBPS9DATtvDdATnX",
+              icon: "lib/component/icon/play.svg",
+              target: "_blank",
+              text: "Explore our session archive on YouTube",
+              title: "FOIAFriday playlist on YouTube",
+            },
+          ],
+          subtitle: "A community podcast about all things FOIA and public records",
+          title: "FOIAFriday",
+        },
+        {
+          description:
+            "Our team of FOIA experts is available to help you get the records or data you need, while our tech team is available to help you build custom add-ons to extend DocumentCloud. We've also partnered with Sunlight Research Desk to support newsrooms with bespoke research and workshops, reporting recipes and tools, and a vibrant peer-to-peer support network.",
+          links: [
+            {
+              href: "https://www.sunlightresearch.net/launch",
+              icon: "lib/component/icon/bookmark.svg",
+              target: "_blank",
+              text: "Explore Sunlight Research Desk's offerings",
+              title: "Sunlight Research Desk",
+            },
+            {
+              href: "mailto:info@muckrock.com?subject=Consulting%20Inquiry",
+              icon: "lib/component/icon/send.svg",
+              text: "Contact us to learn more",
+              title: "Email MuckRock",
+            },
+          ],
+          subtitle: "On-demand access to experts in public record research methods",
+          title: "Consulting & research",
+        },
+        {
+          description:
+            "Learn how to use MuckRock Requests, DocumentCloud, and other tools to investigate government.",
+          links: [
+            {
+              href: "https://help.muckrock.com/FOIA-and-Public-Records-Training-19ef88926963814894c4f2445bc4c5a6",
+              icon: "lib/component/icon/bookmark.svg",
+              target: "_blank",
+              text: "Learn about private trainings",
+              title: "",
+            },
+            {
+              href: "https://us02web.zoom.us/meeting/register/pDv8lZSnR9CywwAi3G9h5Q#/registration",
+              icon: "lib/component/icon/calendar.svg",
+              target: "_blank",
+              text: "Join us for our Building with MuckRock workshop",
+              title: "Training registration on Zoom",
+            },
+            {
+              href: "https://www.youtube.com/playlist?list=PLBGm5TjywchO0xiJBkFD9Tto6kAzl389e",
+              icon: "lib/component/icon/play.svg",
+              target: "_blank",
+              text: "Access the Building with MuckRock videos on YouTube",
+              title: "Building with MuckRock playlist on YouTube",
+            },
+          ],
+          subtitle: "Get live instruction in transparency",
+          title: "Workshops & trainings",
+        },
+        {
+          description:
+            "MuckRock users shine a light on important issues every day. Here are some of their stories and resources to help your own work.",
+          links: [
+            {
+              href: "https://www.muckrock.com/about/case-studies/",
+              icon: "lib/component/icon/book.svg",
+              text: "Case Studies: Learn how MuckRock has been put to work",
+              title: "Case Studies: Learn how MuckRock has been put to work",
+            },
+            {
+              href: "/place/",
+              icon: "lib/component/icon/book.svg",
+              text: "50 States: our comprehensive guide to records laws",
+              title: "50 States: your guide to state records laws",
+            },
+            {
+              href: "https://www.muckrock.com/project/foia-101-tips-and-tricks-to-make-you-a-transparency-master-234/",
+              icon: "lib/component/icon/book.svg",
+              text: "FOIA 101: tips and tricks to make you a transparency master",
+              title: "FOIA 101: tips and tricks to make you a transparency master",
+            },
+          ],
+          subtitle: "Learn about our research techniques and technologies",
+          title: "Guides & case studies",
+        },
+      ];
+
+      // Known icon paths. Users can also enter custom paths.
+      const KNOWN_ICONS = [
+        "lib/component/icon/bookmark.svg",
+        "lib/component/icon/book.svg",
+        "lib/component/icon/calendar.svg",
+        "lib/component/icon/mic.svg",
+        "lib/component/icon/play.svg",
+        "lib/component/icon/send.svg",
+      ];
+
+      const TARGET_OPTIONS = ["", "_blank", "_self", "_parent", "_top"];
+
+      // Schema definitions for validation.
+      const LINK_SCHEMA = {
+        href: { required: true, type: "string", label: "URL (href)" },
+        text: { required: true, type: "string", label: "Text" },
+        title: { required: false, type: "string", label: "Title (tooltip)" },
+        icon: { required: false, type: "string", label: "Icon" },
+        target: {
+          required: false,
+          type: "string",
+          label: "Target",
+          enum: TARGET_OPTIONS,
+        },
+      };
+
+      const SECTION_SCHEMA = {
+        title: { required: true, type: "string", label: "Title" },
+        subtitle: { required: true, type: "string", label: "Subtitle" },
+        description: { required: true, type: "string", label: "Description" },
+        links: { required: true, type: "array", label: "Links" },
+      };
+
+      // Validate a single href value. Allows absolute http(s), mailto:, and
+      // site-relative paths starting with / or #.
+      function validateHref(value) {
+        if (!value || typeof value !== "string") return "URL is required";
+        const v = value.trim();
+        if (!v) return "URL is required";
+        if (v.startsWith("/") || v.startsWith("#")) return null;
+        if (/^mailto:/i.test(v)) return null;
+        try {
+          const u = new URL(v);
+          if (!["http:", "https:"].includes(u.protocol)) {
+            return "URL must be http(s), mailto:, or site-relative";
+          }
+          return null;
+        } catch {
+          return "Not a valid URL";
+        }
+      }
+
+      function validateLink(link) {
+        const errors = {};
+        for (const [field, rule] of Object.entries(LINK_SCHEMA)) {
+          const value = link[field];
+          if (rule.required && (value === undefined || value === null || value === "")) {
+            errors[field] = `${rule.label} is required`;
+            continue;
+          }
+          if (value !== undefined && value !== null && value !== "") {
+            if (rule.type === "string" && typeof value !== "string") {
+              errors[field] = `${rule.label} must be a string`;
+            }
+            if (rule.enum && !rule.enum.includes(value)) {
+              errors[field] = `${rule.label} must be one of: ${rule.enum
+                .filter((v) => v)
+                .join(", ") || "(empty)"}`;
+            }
+          }
+        }
+        if (!errors.href) {
+          const hrefErr = validateHref(link.href);
+          if (hrefErr) errors.href = hrefErr;
+        }
+        return errors;
+      }
+
+      function validateSection(section) {
+        const errors = { fields: {}, links: [] };
+        for (const [field, rule] of Object.entries(SECTION_SCHEMA)) {
+          const value = section[field];
+          if (field === "links") continue;
+          if (rule.required && (value === undefined || value === null || value === "")) {
+            errors.fields[field] = `${rule.label} is required`;
+            continue;
+          }
+          if (rule.type === "string" && typeof value !== "string") {
+            errors.fields[field] = `${rule.label} must be a string`;
+          }
+        }
+        if (!Array.isArray(section.links)) {
+          errors.fields.links = "Links must be an array";
+        } else {
+          section.links.forEach((link) => {
+            errors.links.push(validateLink(link));
+          });
+        }
+        return errors;
+      }
+
+      function sectionHasErrors(errs) {
+        if (Object.keys(errs.fields).length > 0) return true;
+        return errs.links.some((l) => Object.keys(l).length > 0);
+      }
+
+      // ---- State ----
+      let state = { sections: clone(DEFAULT_DATA) };
+
+      function clone(x) {
+        return JSON.parse(JSON.stringify(x));
+      }
+
+      function loadFromStorage() {
+        try {
+          const raw = localStorage.getItem("muckrock-sections-editor");
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) state.sections = parsed;
+          }
+        } catch {}
+      }
+
+      function saveToStorage() {
+        try {
+          localStorage.setItem(
+            "muckrock-sections-editor",
+            JSON.stringify(state.sections),
+          );
+        } catch {}
+      }
+
+      // ---- Rendering ----
+      const sectionsList = document.getElementById("sections-list");
+      const jsonOutput = document.getElementById("json-output");
+      const validationSummary = document.getElementById("validation-summary");
+
+      function render() {
+        sectionsList.innerHTML = "";
+        state.sections.forEach((section, i) => {
+          sectionsList.appendChild(renderSection(section, i));
+        });
+        updateOutput();
+        saveToStorage();
+      }
+
+      // Light update: refresh JSON preview + validation summary without
+      // touching form inputs. Used on every keystroke to avoid focus loss.
+      function liveUpdate() {
+        updateOutput();
+        saveToStorage();
+      }
+
+      function renderSection(section, index) {
+        const errs = validateSection(section);
+        const hasErrors = sectionHasErrors(errs);
+
+        const card = document.createElement("div");
+        card.className = "section-card" + (hasErrors ? " invalid" : "");
+
+        const head = document.createElement("div");
+        head.className = "section-head";
+        head.innerHTML = `<h3>Section ${index + 1}${section.title ? ": " + escapeHtml(section.title) : ""}</h3>`;
+        const controls = document.createElement("div");
+        controls.className = "section-controls";
+        controls.appendChild(
+          mkBtn("↑", "tiny", () => moveSection(index, -1), index === 0),
+        );
+        controls.appendChild(
+          mkBtn(
+            "↓",
+            "tiny",
+            () => moveSection(index, 1),
+            index === state.sections.length - 1,
+          ),
+        );
+        controls.appendChild(
+          mkBtn("Delete", "tiny danger", () => deleteSection(index)),
+        );
+        head.appendChild(controls);
+        card.appendChild(head);
+
+        const body = document.createElement("div");
+        body.className = "section-body";
+
+        body.appendChild(
+          mkField("Title", "text", section.title || "", (v) => {
+            section.title = v;
+          }, errs.fields.title),
+        );
+        body.appendChild(
+          mkField("Subtitle", "text", section.subtitle || "", (v) => {
+            section.subtitle = v;
+          }, errs.fields.subtitle),
+        );
+        body.appendChild(
+          mkField(
+            "Description",
+            "textarea",
+            section.description || "",
+            (v) => {
+              section.description = v;
+            },
+            errs.fields.description,
+          ),
+        );
+
+        // Links block
+        const linksBlock = document.createElement("div");
+        linksBlock.className = "links-block";
+        const linksHead = document.createElement("div");
+        linksHead.className = "links-block-head";
+        linksHead.innerHTML = `<strong style="font-size:13px">Links (${section.links.length})</strong>`;
+        const addLinkBtn = mkBtn("+ Add link", "tiny primary", () => {
+          section.links.push({
+            href: "",
+            text: "",
+            title: "",
+            icon: "",
+            target: "_blank",
+          });
+          render();
+        });
+        linksHead.appendChild(addLinkBtn);
+        linksBlock.appendChild(linksHead);
+
+        section.links.forEach((link, li) => {
+          linksBlock.appendChild(
+            renderLink(link, li, section.links, errs.links[li] || {}),
+          );
+        });
+
+        body.appendChild(linksBlock);
+        card.appendChild(body);
+        return card;
+      }
+
+      function renderLink(link, index, linksArr, errs) {
+        const hasErrors = Object.keys(errs).length > 0;
+        const card = document.createElement("div");
+        card.className = "link-card" + (hasErrors ? " invalid" : "");
+
+        const head = document.createElement("div");
+        head.className = "link-head";
+        head.innerHTML = `<span>Link ${index + 1}${link.text ? ": " + escapeHtml(link.text) : ""}</span>`;
+        const controls = document.createElement("div");
+        controls.className = "link-controls";
+        controls.appendChild(
+          mkBtn(
+            "↑",
+            "tiny",
+            () => {
+              if (index === 0) return;
+              [linksArr[index - 1], linksArr[index]] = [
+                linksArr[index],
+                linksArr[index - 1],
+              ];
+              render();
+            },
+            index === 0,
+          ),
+        );
+        controls.appendChild(
+          mkBtn(
+            "↓",
+            "tiny",
+            () => {
+              if (index === linksArr.length - 1) return;
+              [linksArr[index + 1], linksArr[index]] = [
+                linksArr[index],
+                linksArr[index + 1],
+              ];
+              render();
+            },
+            index === linksArr.length - 1,
+          ),
+        );
+        controls.appendChild(
+          mkBtn("Delete", "tiny danger", () => {
+            linksArr.splice(index, 1);
+            render();
+          }),
+        );
+        head.appendChild(controls);
+        card.appendChild(head);
+
+        const body = document.createElement("div");
+        body.className = "link-body";
+
+        body.appendChild(
+          mkField(
+            "Text",
+            "text",
+            link.text || "",
+            (v) => {
+              link.text = v;
+            },
+            errs.text,
+            "span-2",
+          ),
+        );
+        body.appendChild(
+          mkField(
+            "URL (href)",
+            "text",
+            link.href || "",
+            (v) => {
+              link.href = v;
+            },
+            errs.href,
+            "span-2",
+          ),
+        );
+        body.appendChild(
+          mkField(
+            "Title (tooltip)",
+            "text",
+            link.title || "",
+            (v) => {
+              link.title = v;
+            },
+            errs.title,
+            "span-2",
+          ),
+        );
+
+        // Icon field with picker
+        const iconField = document.createElement("div");
+        iconField.className = "field";
+        iconField.innerHTML = `<label>Icon</label>`;
+        const iconRow = document.createElement("div");
+        iconRow.className = "icon-row";
+        const iconSelect = document.createElement("select");
+        const presetOpt = document.createElement("option");
+        presetOpt.value = "__custom__";
+        presetOpt.textContent = "Custom…";
+        iconSelect.appendChild(makeOption("", "(none)"));
+        KNOWN_ICONS.forEach((p) => {
+          iconSelect.appendChild(
+            makeOption(p, p.replace("lib/component/icon/", "")),
+          );
+        });
+        iconSelect.appendChild(presetOpt);
+        const iconInput = document.createElement("input");
+        iconInput.type = "text";
+        iconInput.placeholder = "Icon path";
+        iconInput.value = link.icon || "";
+        if (link.icon && !KNOWN_ICONS.includes(link.icon)) {
+          iconSelect.value = "__custom__";
+        } else {
+          iconSelect.value = link.icon || "";
+        }
+        iconSelect.addEventListener("change", () => {
+          if (iconSelect.value === "__custom__") {
+            iconInput.focus();
+          } else {
+            link.icon = iconSelect.value;
+            render();
+          }
+        });
+        iconInput.addEventListener("input", () => {
+          link.icon = iconInput.value;
+          liveUpdate();
+        });
+        iconInput.addEventListener("blur", () => render());
+        iconRow.appendChild(iconSelect);
+        iconRow.appendChild(iconInput);
+        iconField.appendChild(iconRow);
+        body.appendChild(iconField);
+
+        // Target field
+        const targetField = document.createElement("div");
+        targetField.className = "field";
+        targetField.innerHTML = `<label>Target</label>`;
+        const targetSelect = document.createElement("select");
+        TARGET_OPTIONS.forEach((t) => {
+          targetSelect.appendChild(makeOption(t, t || "(none)"));
+        });
+        targetSelect.value = link.target || "";
+        targetSelect.addEventListener("change", () => {
+          if (targetSelect.value === "") {
+            delete link.target;
+          } else {
+            link.target = targetSelect.value;
+          }
+          render();
+        });
+        targetField.appendChild(targetSelect);
+        body.appendChild(targetField);
+
+        card.appendChild(body);
+        return card;
+      }
+
+      function mkField(label, type, value, onChange, error, extraClass) {
+        const f = document.createElement("div");
+        f.className = "field" + (error ? " error" : "") + (extraClass ? " " + extraClass : "");
+        const lab = document.createElement("label");
+        lab.textContent = label;
+        f.appendChild(lab);
+        let input;
+        if (type === "textarea") {
+          input = document.createElement("textarea");
+        } else {
+          input = document.createElement("input");
+          input.type = "text";
+        }
+        input.value = value;
+        input.addEventListener("input", () => {
+          onChange(input.value);
+          liveUpdate();
+        });
+        // Full re-render on blur refreshes inline error styling.
+        input.addEventListener("blur", () => {
+          render();
+        });
+        f.appendChild(input);
+        if (error) {
+          const em = document.createElement("div");
+          em.className = "error-msg";
+          em.textContent = error;
+          f.appendChild(em);
+        }
+        return f;
+      }
+
+      function mkBtn(text, cls, onClick, disabled) {
+        const b = document.createElement("button");
+        b.className = cls;
+        b.textContent = text;
+        b.disabled = !!disabled;
+        if (disabled) b.style.opacity = 0.4;
+        b.addEventListener("click", onClick);
+        return b;
+      }
+
+      function makeOption(value, label) {
+        const o = document.createElement("option");
+        o.value = value;
+        o.textContent = label;
+        return o;
+      }
+
+      function escapeHtml(s) {
+        return String(s).replace(/[&<>"']/g, (c) => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;",
+        })[c]);
+      }
+
+      // Re-render is heavy but inputs lose focus when their parent gets replaced.
+      // To preserve focus on the input the user is typing in, remember the
+      // active element selector path and restore selection after render.
+      const origRender = render;
+      function renderPreservingFocus() {
+        const active = document.activeElement;
+        let path = null;
+        let selStart = null;
+        let selEnd = null;
+        if (
+          active &&
+          (active.tagName === "INPUT" || active.tagName === "TEXTAREA")
+        ) {
+          path = getDomPath(active);
+          selStart = active.selectionStart;
+          selEnd = active.selectionEnd;
+        }
+        origRender();
+        if (path) {
+          const el = resolveDomPath(path);
+          if (el) {
+            el.focus();
+            if (selStart !== null && el.setSelectionRange) {
+              try {
+                el.setSelectionRange(selStart, selEnd);
+              } catch {}
+            }
+          }
+        }
+      }
+
+      function getDomPath(el) {
+        const path = [];
+        while (el && el !== document.body) {
+          const parent = el.parentNode;
+          if (!parent) break;
+          const idx = Array.prototype.indexOf.call(parent.children, el);
+          path.unshift(idx);
+          el = parent;
+        }
+        return path;
+      }
+
+      function resolveDomPath(path) {
+        let el = document.body;
+        for (const idx of path) {
+          if (!el || !el.children[idx]) return null;
+          el = el.children[idx];
+        }
+        return el;
+      }
+
+      // Override the global render to preserve focus.
+      render = renderPreservingFocus;
+
+      function updateOutput() {
+        jsonOutput.value = JSON.stringify(state.sections, null, 2);
+        const allErrors = state.sections.map((s) => validateSection(s));
+        const anyBad = allErrors.some(sectionHasErrors);
+        if (anyBad) {
+          validationSummary.className = "validation-summary bad";
+          const list = [];
+          allErrors.forEach((errs, i) => {
+            Object.entries(errs.fields).forEach(([f, msg]) => {
+              list.push(`Section ${i + 1}: ${msg}`);
+            });
+            errs.links.forEach((linkErrs, li) => {
+              Object.entries(linkErrs).forEach(([f, msg]) => {
+                list.push(`Section ${i + 1}, link ${li + 1}: ${msg}`);
+              });
+            });
+          });
+          validationSummary.innerHTML =
+            `<strong>${list.length} validation issue${list.length === 1 ? "" : "s"}:</strong>` +
+            `<ul>${list.map((l) => `<li>${escapeHtml(l)}</li>`).join("")}</ul>`;
+        } else {
+          validationSummary.className = "validation-summary ok";
+          validationSummary.textContent = `All ${state.sections.length} section${state.sections.length === 1 ? "" : "s"} valid.`;
+        }
+      }
+
+      // ---- Section actions ----
+      function moveSection(index, delta) {
+        const ni = index + delta;
+        if (ni < 0 || ni >= state.sections.length) return;
+        [state.sections[index], state.sections[ni]] = [
+          state.sections[ni],
+          state.sections[index],
+        ];
+        render();
+      }
+
+      function deleteSection(index) {
+        if (!confirm(`Delete section "${state.sections[index].title || index + 1}"?`)) return;
+        state.sections.splice(index, 1);
+        render();
+      }
+
+      function addSection() {
+        state.sections.push({
+          title: "",
+          subtitle: "",
+          description: "",
+          links: [],
+        });
+        render();
+        const cards = sectionsList.querySelectorAll(".section-card");
+        const lastCard = cards[cards.length - 1];
+        if (lastCard) {
+          lastCard.scrollIntoView({ behavior: "smooth", block: "start" });
+          const firstInput = lastCard.querySelector(
+            ".section-body input, .section-body textarea",
+          );
+          if (firstInput) firstInput.focus();
+        }
+      }
+
+      // ---- Import / Export ----
+      const importModal = document.getElementById("import-modal");
+      const importText = document.getElementById("import-text");
+      const importError = document.getElementById("import-error");
+
+      document.getElementById("import-btn").addEventListener("click", () => {
+        importText.value = JSON.stringify(state.sections, null, 2);
+        importError.textContent = "";
+        importModal.classList.add("open");
+      });
+      document
+        .getElementById("import-cancel")
+        .addEventListener("click", () => importModal.classList.remove("open"));
+      document.getElementById("import-confirm").addEventListener("click", () => {
+        try {
+          const parsed = JSON.parse(importText.value);
+          if (!Array.isArray(parsed)) {
+            throw new Error("Top-level JSON must be an array of sections.");
+          }
+          // Normalize parsed entries to have expected shape.
+          parsed.forEach((s, i) => {
+            if (typeof s !== "object" || s === null)
+              throw new Error(`Section ${i + 1} must be an object.`);
+            if (!Array.isArray(s.links)) s.links = [];
+          });
+          state.sections = parsed;
+          importModal.classList.remove("open");
+          render();
+          flash("Imported.");
+        } catch (e) {
+          importError.textContent = e.message;
+        }
+      });
+
+      document.getElementById("reset-btn").addEventListener("click", () => {
+        if (!confirm("Reset to the default sections? Your edits will be lost.")) return;
+        state.sections = clone(DEFAULT_DATA);
+        render();
+        flash("Reset to default.");
+      });
+
+      document.getElementById("download-btn").addEventListener("click", () => {
+        const blob = new Blob([JSON.stringify(state.sections, null, 2)], {
+          type: "application/json",
+        });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "sections.json";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+
+      document.getElementById("copy-btn").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(
+            JSON.stringify(state.sections, null, 2),
+          );
+          flash("Copied JSON to clipboard.");
+        } catch {
+          jsonOutput.select();
+          document.execCommand("copy");
+          flash("Copied JSON to clipboard.");
+        }
+      });
+
+      document.getElementById("add-section").addEventListener("click", addSection);
+
+      // ---- Flash ----
+      const flashEl = document.getElementById("flash");
+      let flashTimer;
+      function flash(msg) {
+        flashEl.textContent = msg;
+        flashEl.classList.add("show");
+        clearTimeout(flashTimer);
+        flashTimer = setTimeout(() => flashEl.classList.remove("show"), 2000);
+      }
+
+      // ---- Init ----
+      loadFromStorage();
+      render();
+    </script>
+  </body>
+</html>
