@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tools</title>
+  <meta name="description" content="A collection of small, self-contained web tools.">
+  <style>
+    :root {
+      --bg: #f7f7f5;
+      --card: #ffffff;
+      --text: #1a1a1a;
+      --muted: #666;
+      --accent: #2563eb;
+      --border: #e5e5e0;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #161616;
+        --card: #1f1f1f;
+        --text: #ededed;
+        --muted: #999;
+        --accent: #6ea8fe;
+        --border: #2e2e2e;
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.25rem 4rem;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 0.5rem;
+    }
+
+    header p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    header a {
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem 1.4rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      margin: 0 0 0.3rem;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Tools</h1>
+      <p>A collection of small, self-contained web tools — each does one thing.</p>
+    </header>
+
+    <main class="grid">
+      <a class="card" href="interval-timer/">
+        <h2>⏱️ Interval Timer</h2>
+        <p>A configurable timer for workouts and timed intervals, with audio cues.</p>
+      </a>
+
+      <a class="card" href="recipe-adjustments/">
+        <h2>🍳 Recipe Ingredient Scaler</h2>
+        <p>Paste your ingredients and adjust serving sizes easily.</p>
+      </a>
+
+      <a class="card" href="oscars-2026/">
+        <h2>🏆 2026 Oscar Nominations by Film</h2>
+        <p>The 98th Academy Awards nominees, organized by film.</p>
+      </a>
+
+      <a class="card" href="markdown-formatter/">
+        <h2>📝 Markdown Formatter</h2>
+        <p>Paste messy markdown, get back something clean and readable.</p>
+      </a>
+
+      <a class="card" href="muckrock-homepage-sections/">
+        <h2>📰 MuckRock Homepage Sections Editor</h2>
+        <p>Build and arrange homepage section layouts for MuckRock.</p>
+      </a>
+
+      <a class="card" href="printable-map/">
+        <h2>🗺️ Printable Map — Roslindale, MA</h2>
+        <p>A clean, print-friendly neighborhood map.</p>
+      </a>
+    </main>
+
+    <footer>
+      <p>Source on <a href="https://github.com/eyeseast/tools">GitHub</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>
